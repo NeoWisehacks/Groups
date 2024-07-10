@@ -1,9 +1,13 @@
 import * as React from "react";
 import { Image } from "expo-image";
-import { StyleSheet, View, Text, ImageSourcePropType } from "react-native";
+import { StyleSheet, View, Text, ImageSourcePropType, Pressable } from "react-native";
 import { Border, Color, FontSize, FontFamily, Padding } from "../GlobalStyles";
+import { useNavigation } from "@react-navigation/native";
+
+
 
 const GroupRow = ({ rectangle5329, groupName }) => {
+  const navigation = useNavigation();
   return (
     <View style={styles.newMwssagesParent}>
       <View style={styles.newLayout}>
@@ -18,6 +22,7 @@ const GroupRow = ({ rectangle5329, groupName }) => {
           source={require("../assets/ellipse-2345.png")}
         />
       </View>
+      <Pressable onPress={() => navigation.navigate("Group")}>
       <View style={styles.groupNameParent}>
         <Text style={[styles.groupName, styles.messagesFlexBox]}>
           {groupName}
@@ -26,6 +31,7 @@ const GroupRow = ({ rectangle5329, groupName }) => {
           4+ messages
         </Text>
       </View>
+      </Pressable>
     </View>
   );
 };
@@ -73,7 +79,7 @@ const styles = StyleSheet.create({
     overflow: "hidden",
     justifyContent: "center",
     paddingHorizontal: 0,
-    paddingVertical: Padding.p_10xs,
+    paddingVertical: Padding.p_8xs,
     marginLeft: 20,
     width: 140,
   },

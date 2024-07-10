@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Text, StyleSheet, View, Pressable } from "react-native";
+import { Text, StyleSheet, View, Pressable, SafeAreaView } from "react-native";
 import { Image } from "expo-image";
 import SearchAndButtons from "../components/SearchAndButtons";
 import ToggleHome from "../components/ToggleHome";
@@ -9,12 +9,13 @@ import CommunityPreview from "../components/CommunityPreview";
 import Navbar from "../components/Navbar";
 import ModeLightTypeDefault from "../components/ModeLightTypeDefault";
 import { Border, Color, FontFamily, FontSize, Padding } from "../GlobalStyles";
+import Category from "../components/category";
 
 const Home = () => {
   const navigation = useNavigation();
 
   return (
-    <View style={styles.home}>
+    <SafeAreaView style={styles.home}>
       <SearchAndButtons />
       <ToggleHome
         property1Variant2Position="absolute"
@@ -34,87 +35,19 @@ const Home = () => {
               <Text style={styles.categories}>Categories</Text>
             </View>
             <View style={styles.categoryParent}>
-              <View style={styles.categoryLayout}>
-                <View
-                  style={[styles.categoryChild, styles.categoryChildShadowBox]}
-                />
-                <Text style={[styles.camping, styles.xploreClr]}>camping</Text>
-                <View style={styles.mayaIcontraveloutlinetent}>
-                  <View style={styles.mayaIcontraveloutlinetentChild} />
-                  <Image
-                    style={[
-                      styles.mayaIcontraveloutlinetentItem,
-                      styles.campingPosition,
-                    ]}
-                    contentFit="cover"
-                    source={require("../assets/vector-28.png")}
-                  />
-                </View>
-              </View>
-              <View style={[styles.category1, styles.categoryLayout]}>
-                <View
-                  style={[styles.categoryItem, styles.categoryChildShadowBox]}
-                />
-                <Text style={[styles.camping, styles.xploreClr]}>Business</Text>
-                <View style={styles.mayaIcontraveloutlinetent}>
-                  <View style={styles.mayaIcontraveloutlinetentChild} />
-                  <Image
-                    style={[
-                      styles.mayaIcontraveloutlinetentItem,
-                      styles.campingPosition,
-                    ]}
-                    contentFit="cover"
-                    source={require("../assets/vector-28.png")}
-                  />
-                </View>
-              </View>
-              <View style={[styles.category1, styles.categoryLayout]}>
-                <View style={styles.categoryShadowBox} />
-                <Text style={[styles.camping, styles.xploreClr]}>solo</Text>
-                <View style={styles.mayaIcontraveloutlinetent}>
-                  <View style={styles.mayaIcontraveloutlinetentChild} />
-                  <Image
-                    style={[
-                      styles.mayaIcontraveloutlinetentItem,
-                      styles.campingPosition,
-                    ]}
-                    contentFit="cover"
-                    source={require("../assets/vector-28.png")}
-                  />
-                </View>
-              </View>
-              <View style={[styles.category1, styles.categoryLayout]}>
-                <View style={styles.categoryShadowBox} />
-                <Text style={[styles.camping, styles.xploreClr]}>solo</Text>
-                <View style={styles.mayaIcontraveloutlinetent}>
-                  <View style={styles.mayaIcontraveloutlinetentChild} />
-                  <Image
-                    style={[
-                      styles.mayaIcontraveloutlinetentItem,
-                      styles.campingPosition,
-                    ]}
-                    contentFit="cover"
-                    source={require("../assets/vector-28.png")}
-                  />
-                </View>
-              </View>
-              <View style={[styles.category1, styles.categoryLayout]}>
-                <View
-                  style={[styles.categoryChild2, styles.categoryChildShadowBox]}
-                />
-                <Text style={[styles.camping, styles.xploreClr]}>Leisure</Text>
-                <View style={styles.mayaIcontraveloutlinetent}>
-                  <View style={styles.mayaIcontraveloutlinetentChild} />
-                  <Image
-                    style={[
-                      styles.mayaIcontraveloutlinetentItem,
-                      styles.campingPosition,
-                    ]}
-                    contentFit="cover"
-                    source={require("../assets/vector-28.png")}
-                  />
-                </View>
-              </View>
+            <Category
+                camping="camping"
+                categoryMarginLeft="unset"
+              />
+              <Category
+                camping="camping"
+                categoryMarginLeft={16}
+              />
+              <Category
+                camping="Business"
+                categoryMarginLeft={16}
+              />
+              
             </View>
           </View>
           <View style={styles.frameContainer}>
@@ -240,7 +173,7 @@ const Home = () => {
           modeLightTypeDefaultBackgroundColor="unset"
         />
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
