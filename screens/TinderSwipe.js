@@ -18,11 +18,7 @@ import {
       {image: require('../assets/images_for_swipe/thor.jpeg'), id: 3, title: 'Thor'},
       {image: require('../assets/images_for_swipe/superman.webp'), id: 4, title: 'Superman'},
       {image: require('../assets/images_for_swipe/groot.webp'), id: 5, title: 'Groot'},
-      {
-        image: require('../assets/images_for_swipe/blackpanther.webp'),
-        id: 6,
-        title: 'Black Panther',
-      },
+      {image: require('../assets/images_for_swipe/blackpanther.webp'),id: 6,title: 'Black Panther'},
       {image: require('../assets/images_for_swipe/drstrange.jpeg'), id: 7, title: 'Dr Strange'},
       {image: require('../assets/images_for_swipe/blackwidow.jpeg'), id: 8, title: 'Black Widow'},
     ]);
@@ -34,21 +30,9 @@ import {
           {image: require('../assets/images_for_swipe/thor.jpeg'), id: 3, title: 'Thor'},
           {image: require('../assets/images_for_swipe/superman.webp'), id: 4, title: 'Superman'},
           {image: require('../assets/images_for_swipe/groot.webp'), id: 5, title: 'Groot'},
-          {
-            image: require('../assets/images_for_swipe/blackpanther.webp'),
-            id: 6,
-            title: 'Black Panther',
-          },
-          {
-            image: require('../assets/images_for_swipe/drstrange.jpeg'),
-            id: 7,
-            title: 'Dr Strange',
-          },
-          {
-            image: require('../assets/images_for_swipe/blackwidow.jpeg'),
-            id: 8,
-            title: 'Black Widow',
-          },
+          {image: require('../assets/images_for_swipe/blackpanther.webp'),id: 6,title: 'Black Panther'},
+          {image: require('../assets/images_for_swipe/drstrange.jpeg'),id: 7,title: 'Dr Strange'},
+          {image: require('../assets/images_for_swipe/blackwidow.jpeg'),id: 8,title: 'Black Widow'},
         ]);
       }
     }, [data.length]);

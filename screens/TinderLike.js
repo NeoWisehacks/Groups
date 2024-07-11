@@ -11,10 +11,10 @@ const TinderLike = ({type}) => {
           letterSpacing: 4,
           fontWeight: 'bold',
           color: type == 'Like' ? '#00eda6' : '#FF0060',
-          borderWidth: 5,
+          borderWidth: 4,
           borderColor: type == 'Like' ? '#00eda6' : '#FF0060',
           padding: 5,
-          borderRadius: 10,
+          borderRadius: 15,
           transform: [{rotate: type == 'Like' ? '-30deg' : '30deg'}],
         }}>
         {type}

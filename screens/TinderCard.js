@@ -70,15 +70,31 @@ const TinderCard = ({item, isFirst, swipe, ...rest}) => {
           borderRadius: 20,
         }}>
         <Text
+        style={{
+          position: 'absolute',
+          bottom: 109,
+          left: 30,
+          fontSize: 20,
+          color: '#FFF',
+        }}>Brand Name</Text>
+        <Text
           style={{
             position: 'absolute',
-            bottom: 20,
+            bottom: 58,
             left: 30,
             fontSize: 40,
             color: '#FFF',
           }}>
           {item.title}
         </Text>
+        <Text 
+          style={{
+            position: 'absolute',
+            bottom: 35,
+            left: 30,
+            fontSize: 14,
+            color: '#FFF',
+          }}>Insert Item Description Here.....</Text>
       </LinearGradient>
     </Animated.View>
   );
