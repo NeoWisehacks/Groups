@@ -20,7 +20,7 @@ const SwipFeature = () => {
             <Image
               style={styles.plusIconLayout}
               contentFit="cover"
-              source={require("../assets/icons/thumbsup.svg")}
+              source={require("../assets/icons/tent.svg")}
             />
             <View style={styles.label}>
               <Text style={styles.label1}>Tap to Exit</Text>
@@ -28,7 +28,7 @@ const SwipFeature = () => {
             <Image
               style={[styles.plusMiniIcon1, styles.plusIconLayout]}
               contentFit="cover"
-              source={require("../assets/icons/thumbsup.svg")}
+              source={require("../assets/icons/tent.svg")}
             />
           </View>
         </View>
@@ -40,17 +40,17 @@ const SwipFeature = () => {
             <Image
               style={styles.addToCollectionLayout}
               contentFit="cover"
-              source={require("../assets/icons/thumbsdown.svg")}
+              source={require("../assets/icons/tent.svg")}
             />
             <Image
               style={[styles.addToCollection, styles.addToCollectionLayout]}
               contentFit="cover"
-              source={require("../assets/icons/thumbsup.svg")}
+              source={require("../assets/icons/tent.svg")}
             />
             <Image
               style={[styles.addToCollection, styles.addToCollectionLayout]}
               contentFit="cover"
-              source={require("../assets/icons/thumbsup.svg")}
+              source={require("../assets/icons/tent.svg")}
             />
           </View>
         </View>
@@ -59,7 +59,7 @@ const SwipFeature = () => {
         <Image
           style={[styles.swipChild, styles.swipChildPosition]}
           contentFit="cover"
-          source={require("../assets/icons/thumbsup.svg")}
+          source={require("../assets/productswip.png")}
         />
         <LinearGradient
           style={[styles.frameGroup, styles.swipChildPosition]}
@@ -79,7 +79,7 @@ const SwipFeature = () => {
               <Image
                 style={styles.heroiconsMinihandThumbUp1}
                 contentFit="cover"
-                source={require("../assets/icons/thumbsup.svg")}
+                source={require("../assets/icons/tent.svg")}
               />
               <Text style={[styles.text2, styles.text2Typo]}>4</Text>
             </View>
@@ -87,7 +87,7 @@ const SwipFeature = () => {
               <Image
                 style={styles.heroiconsMinihandThumbUp1}
                 contentFit="cover"
-                source={require("../assets/icons/thumbsup.svg")}
+                source={require("../assets/icons/tent.svg")}
               />
               <Text style={[styles.text2, styles.text2Typo]}>{`2 `}</Text>
             </View>
@@ -95,7 +95,7 @@ const SwipFeature = () => {
               <Image
                 style={styles.heroiconsMinihandThumbUp1}
                 contentFit="cover"
-                source={require("../assets/icons/thumbsup.svg")}
+                source={require("../assets/icons/tent.svg")}
               />
               <Text style={[styles.text2, styles.text2Typo]}>{`2 `}</Text>
             </View>
@@ -103,7 +103,7 @@ const SwipFeature = () => {
               <Image
                 style={styles.heroiconsMinihandThumbUp1}
                 contentFit="cover"
-                source={require("../assets/icons/thumbsup.svg")}
+                source={require("../assets/icons/tent.svg")}
               />
               <Text style={[styles.text2, styles.text2Typo]}>{`2 `}</Text>
             </View>
@@ -114,7 +114,7 @@ const SwipFeature = () => {
         <Image
           style={[styles.swipChild, styles.swipChildPosition]}
           contentFit="cover"
-          source={require("../assets/icons/thumbsup.svg")}
+          source={require("../assets/icons/tent.svg")}
         />
         <LinearGradient
           style={[styles.frameGroup, styles.swipChildPosition]}
@@ -134,7 +134,7 @@ const SwipFeature = () => {
               <Image
                 style={styles.heroiconsMinihandThumbUp1}
                 contentFit="cover"
-                source={require("../assets/icons/thumbsup.svg")}
+                source={require("../assets/icons/tent.svg")}
               />
               <Text style={[styles.text2, styles.text2Typo]}>4</Text>
             </View>
@@ -142,7 +142,7 @@ const SwipFeature = () => {
               <Image
                 style={styles.heroiconsMinihandThumbUp1}
                 contentFit="cover"
-                source={require("../assets/icons/thumbsup.svg")}
+                source={require("../assets/icons/tent.svg")}
               />
               <Text style={[styles.text2, styles.text2Typo]}>{`2 `}</Text>
             </View>
@@ -150,7 +150,7 @@ const SwipFeature = () => {
               <Image
                 style={styles.heroiconsMinihandThumbUp1}
                 contentFit="cover"
-                source={require("../assets/icons/thumbsup.svg")}
+                source={require("../assets/icons/tent.svg")}
               />
               <Text style={[styles.text2, styles.text2Typo]}>{`2 `}</Text>
             </View>
@@ -158,7 +158,7 @@ const SwipFeature = () => {
               <Image
                 style={styles.heroiconsMinihandThumbUp1}
                 contentFit="cover"
-                source={require("../assets/icons/thumbsup.svg")}
+                source={require("../assets/icons/tent.svg")}
               />
               <Text style={[styles.text2, styles.text2Typo]}>{`2 `}</Text>
             </View>

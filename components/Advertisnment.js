@@ -1,9 +1,11 @@
 import * as React from "react";
 import { Image } from "expo-image";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Pressable } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import { FontFamily, FontSize, Color, Padding, Border } from "../GlobalStyles";
 
 const Advertisnment = ({ showIconLeft, showIconRight }) => {
+  const navigation=useNavigation();
   return (
     <View style={styles.groupChildLayout}>
       <Image
@@ -27,11 +29,12 @@ const Advertisnment = ({ showIconLeft, showIconRight }) => {
             contentFit="cover"
             source={require("../assets/plusmini.png")}
           />
-          <View style={[styles.label, styles.labelFlexBox]}>
+          <Pressable style={[styles.label, styles.labelFlexBox]}
+          onPress={()=>navigation.navigate("SwipFeature")}>
             <Text style={[styles.label1, styles.label1Typo]}>
               Check this out
             </Text>
-          </View>
+          </Pressable>
           <Image
             style={[styles.plusMiniIcon1, styles.plusIconLayout]}
             contentFit="cover"
