@@ -5,6 +5,7 @@ import ModeLightTypeDefault from "../components/ModeLightTypeDefault";
 import { useNavigation } from "@react-navigation/native";
 import ToggleGroup from "../components/ToggleGroup";
 import { FontSize, Color, FontFamily, Padding, Border } from "../GlobalStyles";
+import Wishlist from "../components/Wishlist";
 
 const GroupWishlist = () => {
   const navigation = useNavigation();
@@ -95,6 +96,7 @@ const GroupWishlist = () => {
                 <Text style={[styles.user1, styles.nameTypo]}>user1</Text>
               </View>
             </View>
+            <Wishlist/>
             <View>
               <View style={[styles.rectangleParent, styles.parentFlexBox]}>
                 <Image

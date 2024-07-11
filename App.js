@@ -28,6 +28,8 @@ import GroupOutfit from "./screens/GroupOutfit";
 
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { View, Text, Pressable, TouchableOpacity } from "react-native";
+import SwipFeature from "./screens/SwipFeature";
+
 
 const App = () => {
   const [hideSplashScreen, setHideSplashScreen] = React.useState(true);
@@ -62,6 +64,11 @@ const App = () => {
             <Stack.Screen
               name="GroupsList"
               component={GroupsList}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="SwipFeature"
+              component={SwipFeature}
               options={{ headerShown: false }}
             />
             <Stack.Screen
