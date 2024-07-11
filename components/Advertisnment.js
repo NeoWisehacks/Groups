@@ -30,7 +30,8 @@ const Advertisnment = ({ showIconLeft, showIconRight }) => {
             source={require("../assets/plusmini.png")}
           />
           <Pressable style={[styles.label, styles.labelFlexBox]}
-          onPress={()=>navigation.navigate("SwipFeature")}>
+          // onPress={()=>navigation.navigate("SwipFeature")}>
+          onPress={()=>navigation.navigate("TinderSwipe")}>
             <Text style={[styles.label1, styles.label1Typo]}>
               Check this out
             </Text>

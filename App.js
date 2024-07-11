@@ -31,6 +31,7 @@ import { View, Text, Pressable, TouchableOpacity } from "react-native";
 import RightSwipFeature from "./screens/RightSwipFeature";
 import LeftSwipFeature from "./screens/RightSwipFeature";
 import SwipFeature from "./screens/SwipFeature";
+import TinderSwipe from "./screens/TinderSwipe";
 
 const App = () => {
   const [hideSplashScreen, setHideSplashScreen] = React.useState(true);
@@ -67,12 +68,17 @@ const App = () => {
               component={GroupsList}
               options={{ headerShown: false }}
             />
-            <Stack.Screen
+            {/* <Stack.Screen
               name="SwipFeature"
               component={SwipFeature}
               options={{ headerShown: false }}
-            />
+            /> */}
             <Stack.Screen
+              name="TinderSwipe"
+              component={TinderSwipe}
+              options={{ headerShown: false }}
+            />
+            {/* <Stack.Screen
               name="RightSwipFeature"
               component={RightSwipFeature}
               options={{ headerShown: false }}
@@ -81,7 +87,7 @@ const App = () => {
               name="LeftSwipFeature"
               component={LeftSwipFeature}
               options={{ headerShown: false }}
-            />
+            /> */}
             <Stack.Screen
               name="Communities"
               component={Communities}
