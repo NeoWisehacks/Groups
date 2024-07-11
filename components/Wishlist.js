@@ -8,27 +8,27 @@ const Wishlist = () => {
   const navigation = useNavigation();
 
   return (
-    <Pressable onPress={()=>navigation.navigate("SwipScreen")}>
+    <Pressable onPress={()=>navigation.navigate("SwipFeature")}>
       <View style={styles.rectangleParent}>
         <Image
           style={styles.frameChild}
           contentFit="cover"
-          source={require("../assets/rectangle-53293.png")}
+          source={require("../assets/rectangle-53295.png")}
         />
         <Image
           style={styles.frameChild}
           contentFit="cover"
-          source={require("../assets/rectangle-53293.png")}
+          source={require("../assets/rectangle-53295.png")}
         />
         <Image
           style={styles.frameChild}
           contentFit="cover"
-          source={require("../assets/rectangle-53293.png")}
+          source={require("../assets/rectangle-53295.png")}
         />
         <Image
           style={styles.frameChild}
           contentFit="cover"
-          source={require("../assets/rectangle-53293.png")}
+          source={require("../assets/rectangle-53295.png")}
         />
       </View>
       <View style={styles.nameParent}>

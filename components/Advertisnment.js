@@ -18,9 +18,9 @@ const Advertisnment = ({ showIconLeft, showIconRight }) => {
           <Text
             style={[styles.fashionDay, styles.offText]}
           >{`#Fashion Day `}</Text>
-          <Text style={[styles.off, styles.offText]}>80% Off</Text>
+          <Text style={[styles.off, styles.offText]}>Swip</Text>
           <Text style={[styles.discoverFashionThat, styles.label1Typo]}>
-            Discover fashion that suits your style
+            Swip to Discover fashion that suits your style
           </Text>
         </View>
         <View style={[styles.button, styles.labelFlexBox]}>

@@ -1,11 +1,12 @@
 import * as React from "react";
 import { Image } from "expo-image";
-import { StyleSheet, View, Pressable, Text } from "react-native";
+import { StyleSheet, View, Pressable, Text, ScrollView } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import ModeLightTypeDefault from "../components/ModeLightTypeDefault";
 import { useNavigation } from "@react-navigation/native";
 import Trips from "../components/Trips";
 import { Padding, FontFamily, FontSize, Border, Color } from "../GlobalStyles";
+import ToggleGroup from "../components/ToggleGroup";
 
 const GroupOutfit = () => {
   const navigation = useNavigation();
@@ -60,23 +61,8 @@ const GroupOutfit = () => {
           <Text style={[styles.loremIpsum, styles.womenTypo]}>lorem ipsum</Text>
         </View>
         <View>
-          <View style={styles.toggleGroup}>
-            <Pressable
-              style={[styles.membersWrapper, styles.wrapperFlexBox]}
-              onPress={() => navigation.navigate("Members")}
-            >
-              <Text style={[styles.members, styles.membersTypo]}>Members</Text>
-            </Pressable>
-            <View style={[styles.outfitsWrapper, styles.wrapperFlexBox]}>
-              <Text style={[styles.members, styles.membersTypo]}>Outfits</Text>
-            </View>
-            <Pressable
-              style={[styles.membersWrapper, styles.wrapperFlexBox]}
-              onPress={() => navigation.navigate("GroupWishlist")}
-            >
-              <Text style={[styles.members, styles.membersTypo]}>Wishlist</Text>
-            </Pressable>
-          </View>
+        <ToggleGroup/>
+          
           <View style={styles.frameGroup}>
             <View style={styles.frameSpaceBlock}>
               <View

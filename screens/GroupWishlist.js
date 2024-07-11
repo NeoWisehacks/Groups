@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Image } from "expo-image";
-import { StyleSheet, View, Pressable, Text } from "react-native";
+import { StyleSheet, View, Pressable, Text, ScrollView } from "react-native";
 import ModeLightTypeDefault from "../components/ModeLightTypeDefault";
 import { useNavigation } from "@react-navigation/native";
 import ToggleGroup from "../components/ToggleGroup";
@@ -67,121 +67,16 @@ const GroupWishlist = () => {
         </View>
         <View style={styles.toggleGroupParent}>
           <ToggleGroup />
+          <ScrollView>
           <View style={[styles.wishlistParent, styles.parentFlexBox]}>
-            <View>
-              <View style={[styles.rectangleParent, styles.parentFlexBox]}>
-                <Image
-                  style={styles.frameChild}
-                  contentFit="cover"
-                  source={require("../assets/rectangle-53293.png")}
-                />
-                <Image
-                  style={styles.frameChild}
-                  contentFit="cover"
-                  source={require("../assets/rectangle-5350.png")}
-                />
-                <Image
-                  style={styles.frameChild}
-                  contentFit="cover"
-                  source={require("../assets/rectangle-5352.png")}
-                />
-                <Image
-                  style={styles.frameChild}
-                  contentFit="cover"
-                  source={require("../assets/rectangle-5351.png")}
-                />
-              </View>
-              <View style={styles.nameParent}>
-                <Text style={[styles.name, styles.nameTypo]}>name</Text>
-                <Text style={[styles.user1, styles.nameTypo]}>user1</Text>
-              </View>
-            </View>
+            
+          <Wishlist/>
             <Wishlist/>
-            <View>
-              <View style={[styles.rectangleParent, styles.parentFlexBox]}>
-                <Image
-                  style={styles.frameChild}
-                  contentFit="cover"
-                  source={require("../assets/rectangle-53294.png")}
-                />
-                <Image
-                  style={styles.frameChild}
-                  contentFit="cover"
-                  source={require("../assets/rectangle-53294.png")}
-                />
-                <Image
-                  style={styles.frameChild}
-                  contentFit="cover"
-                  source={require("../assets/rectangle-53294.png")}
-                />
-                <Image
-                  style={styles.frameChild}
-                  contentFit="cover"
-                  source={require("../assets/rectangle-53294.png")}
-                />
-              </View>
-              <View style={styles.nameParent}>
-                <Text style={[styles.name, styles.nameTypo]}>name</Text>
-                <Text style={[styles.user1, styles.nameTypo]}>user1</Text>
-              </View>
-            </View>
-            <View>
-              <View style={[styles.rectangleParent, styles.parentFlexBox]}>
-                <Image
-                  style={styles.frameChild}
-                  contentFit="cover"
-                  source={require("../assets/rectangle-53295.png")}
-                />
-                <Image
-                  style={styles.frameChild}
-                  contentFit="cover"
-                  source={require("../assets/rectangle-53501.png")}
-                />
-                <Image
-                  style={styles.frameChild}
-                  contentFit="cover"
-                  source={require("../assets/rectangle-53521.png")}
-                />
-                <Image
-                  style={styles.frameChild}
-                  contentFit="cover"
-                  source={require("../assets/rectangle-53511.png")}
-                />
-              </View>
-              <View style={styles.nameParent}>
-                <Text style={[styles.name, styles.nameTypo]}>name</Text>
-                <Text style={[styles.user1, styles.nameTypo]}>user1</Text>
-              </View>
-            </View>
-            <View>
-              <View style={[styles.rectangleParent, styles.parentFlexBox]}>
-                <Image
-                  style={styles.frameChild}
-                  contentFit="cover"
-                  source={require("../assets/rectangle-53296.png")}
-                />
-                <Image
-                  style={styles.frameChild}
-                  contentFit="cover"
-                  source={require("../assets/rectangle-53502.png")}
-                />
-                <Image
-                  style={styles.frameChild}
-                  contentFit="cover"
-                  source={require("../assets/rectangle-53522.png")}
-                />
-                <Image
-                  style={styles.frameChild}
-                  contentFit="cover"
-                  source={require("../assets/rectangle-53512.png")}
-                />
-              </View>
-              <View style={styles.nameParent}>
-                <Text style={[styles.name, styles.nameTypo]}>name</Text>
-                <Text style={[styles.user1, styles.nameTypo]}>user1</Text>
-              </View>
-            </View>
-          </View>
+            <Wishlist/>
+            <Wishlist/><Wishlist/>
+           
+            
+          </View></ScrollView>
         </View>
       </View>
       <View style={[styles.homeIndicator, styles.homePosition]}>

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { StyleSheet, View, Text, Pressable } from "react-native";
+import { StyleSheet, View, Text, Pressable, ScrollView } from "react-native";
 import { Image } from "expo-image";
 import ModeLightTypeDefault from "../components/ModeLightTypeDefault";
 import ToggleComm from "../components/ToggleComm";
@@ -102,29 +102,19 @@ const GroupsList = () => {
         property1Variant4Left={0}
         property1Variant4Width={390}
       />
-      <View style={styles.list}>
+      <ScrollView style={styles.list}>
         <GroupRow
           rectangle5329={require("../assets/rectangle-5329.png")}
           groupName="Group Name"
         />
-        <Pressable
-          style={[styles.rectangleParent, styles.parentFlexBox]}
-          onPress={() => navigation.navigate("Group")}
-        >
-          <Image
-            style={styles.frameChild}
-            contentFit="cover"
-            source={require("../assets/rectangle-53291.png")}
-          />
-          <View style={styles.groupNameParent}>
-            <Text style={[styles.groupName, styles.messagesClr]}>
-              Group Name
-            </Text>
-            <Text style={[styles.messages, styles.messagesClr]}>
-              4+ messages
-            </Text>
-          </View>
-        </Pressable>
+        <GroupRow
+          rectangle5329={require("../assets/rectangle-53291.png")}
+          groupName="Group Name"
+        />
+        <GroupRow
+          rectangle5329={require("../assets/rectangle-53291.png")}
+          groupName="Group Name"
+        />
         <GroupRow
           rectangle5329={require("../assets/rectangle-53291.png")}
           groupName="Group Name"
@@ -157,7 +147,7 @@ const GroupsList = () => {
           rectangle5329={require("../assets/rectangle-53292.png")}
           groupName="Group Name"
         />
-      </View>
+      </ScrollView>
       <Navbar
         vuesaxlinearvideoCircle={require("../assets/vuesaxlinearvideocircle.png")}
         vuesaxlinearbag2={require("../assets/vuesaxlinearbag2.png")}
