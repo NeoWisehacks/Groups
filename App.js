@@ -31,7 +31,8 @@ import { View, Text, Pressable, TouchableOpacity } from "react-native";
 import RightSwipFeature from "./screens/RightSwipFeature";
 import LeftSwipFeature from "./screens/RightSwipFeature";
 import SwipFeature from "./screens/SwipFeature";
-
+import Collection from "./screens/Collection";
+import Collection1 from "./screens/Collection1";
 const App = () => {
   const [hideSplashScreen, setHideSplashScreen] = React.useState(true);
 
@@ -46,6 +47,7 @@ const App = () => {
     "Inter-ExtraBold": require("./assets/fonts/Inter-ExtraBold.ttf"),
     "Montserrat-Regular": require("./assets/fonts/Montserrat-Regular.ttf"),
     "Montserrat-SemiBold": require("./assets/fonts/Montserrat-SemiBold.ttf"),
+    
   });
 
   if (!fontsLoaded && !error) {
@@ -65,6 +67,16 @@ const App = () => {
             <Stack.Screen
               name="GroupsList"
               component={GroupsList}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="Collection"
+              component={Collection}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="Collection1"
+              component={Collection1}
               options={{ headerShown: false }}
             />
             <Stack.Screen

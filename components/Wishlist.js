@@ -8,7 +8,7 @@ const Wishlist = () => {
   const navigation = useNavigation();
 
   return (
-    <Pressable onPress={()=>navigation.navigate("SwipFeature")}>
+    <Pressable onPress={()=>navigation.navigate("Collection")}>
       <View style={styles.rectangleParent}>
         <Image
           style={styles.frameChild}
