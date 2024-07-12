@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Text, StyleSheet, View, Pressable, SafeAreaView } from "react-native";
+import { Text, StyleSheet, View, Pressable, SafeAreaView ,ScrollView} from "react-native";
 import { Image } from "expo-image";
 import SearchAndButtons from "../components/SearchAndButtons";
 import ToggleHome from "../components/ToggleHome";
@@ -15,7 +15,9 @@ const Home = () => {
   const navigation = useNavigation();
 
   return (
+    
     <SafeAreaView style={styles.home}>
+      <ScrollView contentContainerStyle={styles.container}>
       <SearchAndButtons />
       <ToggleHome
         property1Variant2Position="absolute"
@@ -173,7 +175,9 @@ const Home = () => {
           modeLightTypeDefaultBackgroundColor="unset"
         />
       </View>
+      </ScrollView>
     </SafeAreaView>
+    
   );
 };
 
@@ -467,6 +471,15 @@ const styles = StyleSheet.create({
     width: "100%",
     flex: 1,
     backgroundColor: Color.lightForegroundsFgOnInverted,
+  },
+  container: {
+    flexGrow: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 16,
+  },
+  item: {
+    marginBottom: 20,
   },
 });
 

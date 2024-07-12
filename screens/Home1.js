@@ -1,5 +1,5 @@
 import * as React from "react";
-import { StyleSheet, View, Text, Pressable } from "react-native";
+import { StyleSheet, View, Text, Pressable,ScrollView } from "react-native";
 import { Image } from "expo-image";
 import ModeLightTypeDefault from "../components/ModeLightTypeDefault";
 import ToggleWardrobe from "../components/ToggleWardrobe";
@@ -12,6 +12,8 @@ const Home1 = () => {
   const navigation = useNavigation();
 
   return (
+    
+      
     <View style={styles.home}>
       <View style={styles.def}>
         <View style={[styles.homeIndicator, styles.homePosition]}>
@@ -392,6 +394,7 @@ const Home1 = () => {
         <Text style={[styles.xplore, styles.xploreClr]}>XPLORE</Text>
       </View>
     </View>
+    
   );
 };
 
@@ -784,6 +787,7 @@ const styles = StyleSheet.create({
     backgroundColor: Color.lightForegroundsFgOnInverted,
     flex: 1,
   },
+  
 });
 
 export default Home1;
