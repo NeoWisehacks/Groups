@@ -11,17 +11,17 @@ import {
   import {collection, getDocs } from 'firebase/firestore/lite';
   import React, {useCallback, useEffect, useRef, useState} from 'react';
   import TinderCard from './TinderCard';
-  import {db} from '../firebaseConfig'
+  import {my_data} from '../firebaseConfig'
   const {height, width} = Dimensions.get('window');
   const image_array=[require('../assets/images_for_swipe/saaree.jpg'),require('../assets/images_for_swipe/kurta.jpg'),require('../assets/images_for_swipe/blazer.jpg'),require('../assets/images_for_swipe/skirt.jpg'),]
   const TinderSwipe = () => {
     
-    const [data, setData] = useState([{"brand": "Koskii", "id": 0, "name": "Mauve Embroidered Saree", "price": "₹5391 (30% off)"}, {"brand": "Sangria", "id": 1, "name": "Embroidery Georgette Kurta Set", "price": " ₹999 (70% off)"}, {"brand": "H&M", "id": 2, "name": "Women Black Longline Blazer", "price": "₹ 3499 "}, {"brand": "Uptownie Lite", "id": 3, "name": "Green Satin Accordion Pleated Skirt", "price": "₹ 1999"}]);
-    
+    //const [data, setData] = useState([{"brand": "Koskii", "id": 0, "name": "Mauve Embroidered Saree", "price": "₹5391 (30% off)"}, {"brand": "Sangria", "id": 1, "name": "Embroidery Georgette Kurta Set", "price": " ₹999 (70% off)"}, {"brand": "H&M", "id": 2, "name": "Women Black Longline Blazer", "price": "₹ 3499 "}, {"brand": "Uptownie Lite", "id": 3, "name": "Green Satin Accordion Pleated Skirt", "price": "₹ 1999"}]);
+    const [data, setData] = useState(my_data);
     useEffect(() => {
       if (!data.length) {
-        setData([{"brand": "Koskii", "id": 0, "name": "Mauve Embroidered Saree", "price": "₹5391 (30% off)"}, {"brand": "Sangria", "id": 1, "name": "Embroidery Georgette Kurta Set", "price": " ₹999 (70% off)"}, {"brand": "H&M", "id": 2, "name": "Women Black Longline Blazer", "price": "₹ 3499 "}, {"brand": "Uptownie Lite", "id": 3, "name": "Green Satin Accordion Pleated Skirt", "price": "₹ 1999"}]);
-        
+        //setData([{"brand": "Koskii", "id": 0, "name": "Mauve Embroidered Saree", "price": "₹5391 (30% off)"}, {"brand": "Sangria", "id": 1, "name": "Embroidery Georgette Kurta Set", "price": " ₹999 (70% off)"}, {"brand": "H&M", "id": 2, "name": "Women Black Longline Blazer", "price": "₹ 3499 "}, {"brand": "Uptownie Lite", "id": 3, "name": "Green Satin Accordion Pleated Skirt", "price": "₹ 1999"}]);
+        setData(my_data)
       }
     }, [data.length]);
     const swipe = useRef(new Animated.ValueXY()).current;
@@ -72,6 +72,7 @@ import {
             const dragHandlers = isFirst ? panResponder.panHandlers : {};
             return (
               <TinderCard
+                key={item['id']}
                 swipe={swipe}
                 item={item}
                 image={image_array[item['id']]} //////////////////////////////////////////////////////////////////////

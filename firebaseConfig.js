@@ -13,4 +13,20 @@ const firebaseConfig = {
 
 export const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
+var lmao=[]
+    async function getOutfits() {
+      const outfitsCol = collection(db, 'outfits');
+      const outfitSnapshot = await getDocs(outfitsCol);
+      const outfitList = outfitSnapshot.docs.map(doc => doc.data());
+      outfitList.map((element, index) => {
+        console.log(element.brand); 
+        console.log(index); 
+        lmao.push(element);
+      });
+      console.log(lmao)
+      return outfitList;
+    }
+    getOutfits()
+    export const my_data = lmao
+
 
