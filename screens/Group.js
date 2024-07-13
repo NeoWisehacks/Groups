@@ -1,14 +1,17 @@
 import * as React from "react";
 import { Image } from "expo-image";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View ,ScrollView} from "react-native";
 import OpinionPoll from "../components/OpinionPoll";
 import Outfit from "../components/Outfit";
 import ModeLightTypeDefault from "../components/ModeLightTypeDefault";
 import FrameComponent from "../components/FrameComponent";
 import { Color, Border, Padding, FontSize, FontFamily } from "../GlobalStyles";
+import OpinionPoll1 from "../components/OpinionPoll1";
+import Poll from "../components/OpinionPoll2";
 
 const Group = () => {
   return (
+    <ScrollView contentContainerStyle={styles.scrollViewContent}>
     <View style={[styles.group, styles.groupLayout]}>
       <View style={styles.chat}>
         <View style={styles.newMwssagesParent}>
@@ -65,7 +68,9 @@ const Group = () => {
                 </View>
               </View>
             </View>
-            <OpinionPoll />
+            {/* <OpinionPoll /> */}
+            {/* <OpinionPoll1/> */}
+            <Poll/>
             <Outfit
               rectangle5329={require("../assets/rectangle-532916.png")}
               rectangle53291={require("../assets/rectangle-532917.png")}
@@ -135,10 +140,14 @@ const Group = () => {
         </View>
       </View>
     </View>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
+  scrollViewContent: {
+    flexGrow: 1,
+  },
   groupLayout: {
     width: "100%",
     overflow: "hidden",

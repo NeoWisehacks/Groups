@@ -1,10 +1,11 @@
 import * as React from "react";
 import { Image } from "expo-image";
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View, Text,ScrollView } from "react-native";
 import { Border, FontSize, FontFamily, Color, Padding } from "../GlobalStyles";
 
 const GroupMemberRow = () => {
   return (
+    <ScrollView contentContainerStyle={styles.scrollViewContent}>
     <View style={styles.newMwssagesParent}>
       <View style={styles.newLayout}>
         <Image
@@ -22,10 +23,14 @@ const GroupMemberRow = () => {
         <Text style={styles.user1}>user1</Text>
       </View>
     </View>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
+  scrollViewContent: {
+    flexGrow: 1,
+  },
   newPosition: {
     borderRadius: Border.br_21xl,
     top: 0,

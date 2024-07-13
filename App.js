@@ -24,8 +24,9 @@ import ToggleComm from "./components/ToggleComm";
 import Outfit from "./components/Outfit";
 import Product from "./components/Product";
 import ToggleWardrobe from "./components/ToggleWardrobe";
+import OpinionPoll from "./components/OpinionPoll";
 import GroupOutfit from "./screens/GroupOutfit";
-
+import OpinionPoll1 from "./components/OpinionPoll1";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { View, Text, Pressable, TouchableOpacity } from "react-native";
 import RightSwipFeature from "./screens/RightSwipFeature";
