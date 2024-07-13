@@ -5,7 +5,7 @@ import TinderLike from './TinderLike';
 // import LinearGradient from 'react-native-linear-gradient';
 import { LinearGradient } from "expo-linear-gradient";
 const {height, width} = Dimensions.get('window');
-const TinderCard = ({item, image,isFirst, swipe, ...rest}) => {
+const TinderCard = ({item, image,no_of_likes,no_of_dislikes,isFirst, swipe, ...rest}) => {
   const rotate = swipe.x.interpolate({
     inputRange: [-100, 0, 100],
     outputRange: ['8deg', '0deg', '-8deg'],
@@ -63,7 +63,7 @@ const TinderCard = ({item, image,isFirst, swipe, ...rest}) => {
       />
       {isFirst && renderChoice()}
       <LinearGradient
-        colors={['transparent', 'transparent', 'rgba(0,0,0,0.5)']}
+        colors={['transparent', 'rgba(0,0,0,0.3)', 'rgba(0,0,0,0.8)']}
         style={{
           width: '100%',
           height: '100%',
@@ -73,16 +73,16 @@ const TinderCard = ({item, image,isFirst, swipe, ...rest}) => {
         <Text
         style={{
           position: 'absolute',
-          bottom: 59,
+          bottom: 64,
           left: 30,
-          fontSize: 16,
+          fontSize: 19,
           color: '#FFF',
         }}>{item['name']}</Text>
         <Text
           style={{
             position: 'absolute',
-            bottom: 80,
-            left: 30,
+            bottom: 85,
+            left: 28,
             fontSize: 38,
             color: '#FFF',
           }}>
@@ -91,11 +91,27 @@ const TinderCard = ({item, image,isFirst, swipe, ...rest}) => {
         <Text 
           style={{
             position: 'absolute',
-            bottom: 35,
+            bottom: 42,
             left: 30,
             fontSize: 14,
             color: '#FFF',
           }}>{item['price']}</Text>
+          <Text 
+          style={{
+            position: 'absolute',
+            bottom: 20,
+            left: 30,
+            fontSize: 14,
+            color: '#FFF',
+          }}>❤️: {no_of_likes}</Text>
+          <Text 
+          style={{
+            position: 'absolute',
+            bottom: 20,
+            left: 77,
+            fontSize: 14,
+            color: '#FFF',
+          }}>👎: {no_of_dislikes}</Text>
       </LinearGradient>
     </Animated.View>
   );

@@ -11,9 +11,13 @@ import {
   import {collection, getDocs } from 'firebase/firestore/lite';
   import React, {useCallback, useEffect, useRef, useState} from 'react';
   import TinderCard from './TinderCard';
+  //import { getDatabase, ref, set } from "firebase/database";
   import {my_data} from '../firebaseConfig'
   const {height, width} = Dimensions.get('window');
   const image_array=[require('../assets/images_for_swipe/saaree.jpg'),require('../assets/images_for_swipe/kurta.jpg'),require('../assets/images_for_swipe/blazer.jpg'),require('../assets/images_for_swipe/skirt.jpg'),]
+  var likes=[0,0,0,0];
+  var dislikes=[0,0,0,0];
+  var curr=0;
   const TinderSwipe = () => {
     
     //const [data, setData] = useState([{"brand": "Koskii", "id": 0, "name": "Mauve Embroidered Saree", "price": "₹5391 (30% off)"}, {"brand": "Sangria", "id": 1, "name": "Embroidery Georgette Kurta Set", "price": " ₹999 (70% off)"}, {"brand": "H&M", "id": 2, "name": "Women Black Longline Blazer", "price": "₹ 3499 "}, {"brand": "Uptownie Lite", "id": 3, "name": "Green Satin Accordion Pleated Skirt", "price": "₹ 1999"}]);
@@ -39,7 +43,7 @@ import {
             useNativeDriver: true,
   
             duration: 500,
-          }).start(removeCard);
+          }).start(removeCard(dx));
         } else {
           Animated.spring(swipe, {
             toValue: {x: 0, y: 0},
@@ -49,8 +53,28 @@ import {
         }
       },
     });
-    const removeCard = useCallback(() => {
+    const removeCard = useCallback((dx) => {
+      //const db = getDatabase();
+      var idx
+      console.log(dx);
+      console.log(curr);
+      if(dx>=0 || dx['value']>=0){
+        likes[curr]=likes[curr]+1;
+        // idx=curr+1
+        // set(ref(db, 'outfits/' + idx), {
+        //   likes: likes+1,
+        // });
+      }
+      else if (dx<0 || dx['value']<0){
+        dislikes[curr]=dislikes[curr]+1;
+        // idx=curr+1
+        // set(ref(db, 'outfits/' + idx), {
+        //   dislikes: dislikes+1,
+        // });
+      }
+      curr=(curr+1)%4;
       setData(prevState => prevState.slice(1));
+      
       swipe.setValue({x: 0, y: 0});
     }, [swipe]);
   
@@ -76,6 +100,8 @@ import {
                 swipe={swipe}
                 item={item}
                 image={image_array[item['id']]} //////////////////////////////////////////////////////////////////////
+                no_of_likes={likes[item['id']]}
+                no_of_dislikes={dislikes[item['id']]}
                 isFirst={isFirst}
                 {...dragHandlers}
               />
