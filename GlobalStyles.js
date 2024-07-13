@@ -58,6 +58,7 @@ export const Color = {
   colorPink: "#ffd1d7",
   colorThistle: "#ffdafb",
   colorFuchsia: "#eb26d7",
+  myntraPrime: "#EE5F73"
 };
 /* Paddings */
 export const Padding = {

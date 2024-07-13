@@ -17,17 +17,6 @@ const GroupsList = () => {
         <View style={[styles.homeIndicator, styles.homePosition]}>
           <View style={[styles.homeIndicator1, styles.homePosition]} />
         </View>
-        <ModeLightTypeDefault
-          notch={require("../assets/notch.png")}
-          wifi={require("../assets/wifi.png")}
-          recordingIndicator={require("../assets/recording-indicator.png")}
-          leftSide={require("../assets/left-side.png")}
-          modeLightTypeDefaultPosition="absolute"
-          modeLightTypeDefaultTop={0}
-          modeLightTypeDefaultLeft={0}
-          modeLightTypeDefaultWidth={375}
-          modeLightTypeDefaultBackgroundColor="unset"
-        />
       </View>
       <View style={[styles.frameParent, styles.parentFlexBox]}>
         <View style={[styles.ioncartOutlineParent, styles.parentFrameFlexBox]}>

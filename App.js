@@ -33,6 +33,8 @@ import LeftSwipFeature from "./screens/RightSwipFeature";
 import SwipFeature from "./screens/SwipFeature";
 import Collection from "./screens/Collection";
 import Collection1 from "./screens/Collection1";
+import SignUp from "./screens/SignUp";
+import Login from "./screens/Login";
 const App = () => {
   const [hideSplashScreen, setHideSplashScreen] = React.useState(true);
 
@@ -59,6 +61,16 @@ const App = () => {
       <NavigationContainer>
         {hideSplashScreen ? (
           <Stack.Navigator screenOptions={{ headerShown: false }}>
+          <Stack.Screen
+              name="SignUp"
+              component={SignUp}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="Login"
+              component={Login}
+              options={{ headerShown: false }}
+            />
             <Stack.Screen
               name="Home"
               component={Home}
@@ -69,6 +81,7 @@ const App = () => {
               component={GroupsList}
               options={{ headerShown: false }}
             />
+            
             <Stack.Screen
               name="Collection"
               component={Collection}

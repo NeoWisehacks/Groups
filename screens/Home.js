@@ -15,7 +15,7 @@ const Home = () => {
   const navigation = useNavigation();
 
   return (
-    <View style={styles.home}>
+    <SafeAreaView style={styles.home}>
       <SearchAndButtons />
       <ToggleHome
         property1Variant2Position="absolute"
@@ -157,23 +157,8 @@ const Home = () => {
         />
         <Text style={[styles.xplore, styles.xploreClr]}>XPLORE</Text>
       </View>
-      <View style={styles.def}>
-        <View style={[styles.homeIndicator, styles.homePosition]}>
-          <View style={[styles.homeIndicator1, styles.homePosition]} />
-        </View>
-        <ModeLightTypeDefault
-          notch={require("../assets/notch.png")}
-          wifi={require("../assets/wifi3.png")}
-          recordingIndicator={require("../assets/recording-indicator.png")}
-          leftSide={require("../assets/left-side.png")}
-          modeLightTypeDefaultPosition="absolute"
-          modeLightTypeDefaultTop={0}
-          modeLightTypeDefaultLeft={0}
-          modeLightTypeDefaultWidth={375}
-          modeLightTypeDefaultBackgroundColor="unset"
-        />
-      </View>
-    </View>
+      
+    </SafeAreaView>
   );
 };
 

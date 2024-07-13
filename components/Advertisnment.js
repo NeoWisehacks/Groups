@@ -18,7 +18,7 @@ const Advertisnment = ({ showIconLeft, showIconRight }) => {
           <Text
             style={[styles.fashionDay, styles.offText]}
           >{`#Fashion Day `}</Text>
-          <Text style={[styles.off, styles.offText]}>Swip</Text>
+          <Text style={[styles.off, styles.offText]}>Swipe</Text>
           <Text style={[styles.discoverFashionThat, styles.label1Typo]}>
             Swip to Discover fashion that suits your style
           </Text>
@@ -30,7 +30,7 @@ const Advertisnment = ({ showIconLeft, showIconRight }) => {
             source={require("../assets/plusmini.png")}
           />
           <Pressable style={[styles.label, styles.labelFlexBox]}
-          onPress={()=>navigation.navigate("SwipFeature")}>
+          onPress={()=>navigation.navigate("Login")}>
             <Text style={[styles.label1, styles.label1Typo]}>
               Check this out
             </Text>
