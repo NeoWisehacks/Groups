@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext,useState } from "react";
 import { View, Text, TextInput, StyleSheet, TouchableOpacity, Switch, Image, ScrollView } from "react-native";
 import * as ImagePicker from 'expo-image-picker';
 import { Color, FontFamily, FontSize, Padding } from "../GlobalStyles";
+import { PollsContext } from "../context/PollsContext";
+
+
 
 const CommunityPoll = ({ navigation }) => {
+  const { addPoll } = useContext(PollsContext);
   const [question, setQuestion] = useState("");
   const [options, setOptions] = useState([{ text: "", image: null }]);
   const [allowMultiple, setAllowMultiple] = useState(false);
@@ -40,8 +44,10 @@ const CommunityPoll = ({ navigation }) => {
   };
 
   const handleSubmitPoll = () => {
-    console.log("Submitted poll:", { question, options, allowMultiple });
-    navigation.navigate('PollsPage', { newPoll: { question, options, allowMultiple } });
+
+    const newPoll = { question, options, allowMultiple };
+    addPoll(newPoll);
+    navigation.navigate('PollsPage');
   };
 
   return (

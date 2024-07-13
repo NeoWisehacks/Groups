@@ -1,6 +1,7 @@
 const Stack = createNativeStackNavigator();
 import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
 import { useFonts } from "expo-font";
 import Home from "./screens/Home";
 import GroupsList from "./screens/GroupsList";
@@ -34,6 +35,7 @@ import LeftSwipFeature from "./screens/RightSwipFeature";
 import SwipFeature from "./screens/SwipFeature";
 import  CommunityPoll  from "./screens/CommunityPoll";
 import PollsPage from "./screens/PollsPage";
+import { PollsProvider } from "./context/PollsContext";
 
 const App = () => {
   const [hideSplashScreen, setHideSplashScreen] = React.useState(true);
@@ -54,9 +56,11 @@ const App = () => {
   if (!fontsLoaded && !error) {
     return null;
   }
+  const Stack=createStackNavigator();
 
   return (
     <>
+    <PollsProvider>
       <NavigationContainer>
         {hideSplashScreen ? (
           <Stack.Navigator screenOptions={{ headerShown: false }}>
@@ -168,6 +172,7 @@ const App = () => {
           </Stack.Navigator>
         ) : null}
       </NavigationContainer>
+      </PollsProvider>
     </>
   );
 };

@@ -1,72 +1,97 @@
-import React, { useState } from "react";
-import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from "react-native";
+// PollsPage.js
+import React, { useContext, useState } from "react";
+import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView, FlatList } from "react-native";
+import { PollsContext } from "../context/PollsContext";
 import { Color, FontFamily, FontSize, Padding } from "../GlobalStyles";
 
-const PollsPage = ({ route }) => {
-  const { newPoll } = route.params;
+const PollItem = ({ poll, updatePoll ,communityName}) => {
+  const initialOptions = poll.options.map(option => ({ ...option, count: Math.floor(Math.random() * 20) }));
 
-  // Initialize options with random initial counts
-  const initialOptions = newPoll.options.map(option => ({ ...option, count: Math.floor(Math.random() * 20) }));
-
-  const [updatedPoll, setUpdatedPoll] = useState({ ...newPoll, options: initialOptions });
+  const [updatedPoll, setUpdatedPoll] = useState({ ...poll, options: initialOptions });
   const [selectedOptionIndex, setSelectedOptionIndex] = useState(null);
 
-  // Function to handle option selection
   const handleOptionSelect = (index) => {
+    const updatedOptions = [...updatedPoll.options];
     if (selectedOptionIndex !== null) {
-      const updatedOptions = [...updatedPoll.options];
-      updatedOptions[selectedOptionIndex].count -= 1; // Decrease count for previously selected option
-      updatedOptions[index].count += 1; // Increase count for newly selected option
-      setUpdatedPoll({ ...updatedPoll, options: updatedOptions });
-    } else {
-      const updatedOptions = updatedPoll.options.map((option, i) => ({
-        ...option,
-        count: i === index ? option.count + 1 : option.count
-      }));
-      setUpdatedPoll({ ...updatedPoll, options: updatedOptions });
+      updatedOptions[selectedOptionIndex].count -= 1;
     }
-    setSelectedOptionIndex(index); // Update selected option index
+    updatedOptions[index].count += 1;
+    setUpdatedPoll({ ...updatedPoll, options: updatedOptions });
+    setSelectedOptionIndex(index);
+    updatePoll(updatedPoll);
   };
 
-  // Function to find the option with maximum count
   const getMaxResponseOption = () => {
     let maxCount = -1;
     let maxOptionIndex = -1;
-
     updatedPoll.options.forEach((option, index) => {
       if (option.count > maxCount) {
         maxCount = option.count;
         maxOptionIndex = index;
       }
     });
-
     return maxOptionIndex;
   };
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.title}>Community Polls</Text>
+    <View style={styles.pollContainer}>
+      <Text style={styles.question}>{updatedPoll.question}</Text>
+      <Text style={styles.communityName}>Community:{communityName}</Text>
+      {updatedPoll.options.map((option, index) => (
+        <TouchableOpacity
+          key={index}
+          style={[
+            styles.optionContainer,
+            index === getMaxResponseOption() && styles.highlightedOption
+          ]}
+          onPress={() => handleOptionSelect(index)}
+        >
+          {option.image && <Image source={{ uri: option.image }} style={styles.optionImage} />}
+          <Text style={styles.optionText}>{option.text}</Text>
+          <Text style={styles.countText}>Count: {option.count}</Text>
+        </TouchableOpacity>
+      ))}
+    </View>
+  );
+};
 
-      {updatedPoll && (
-        <View style={styles.pollContainer}>
-          <Text style={styles.question}>{updatedPoll.question}</Text>
-          {updatedPoll.options.map((option, index) => (
-            <TouchableOpacity
-              key={index}
-              style={[
-                styles.optionContainer,
-                index === getMaxResponseOption() && styles.highlightedOption // Apply highlighting style
-              ]}
-              onPress={() => handleOptionSelect(index)}
-            >
-              {option.image && <Image source={{ uri: option.image }} style={styles.optionImage} />}
-              <Text style={styles.optionText}>{option.text}</Text>
-              <Text style={styles.countText}>Count: {option.count}</Text>
-            </TouchableOpacity>
-          ))}
-        </View>
-      )}
-    </ScrollView>
+const PollsPage = () => {
+  const { polls, setPolls } = useContext(PollsContext);
+
+    // Function to generate a random community name
+    const getRandomCommunityName = () => {
+        const communityNames = [
+          "Neowise",
+          "GenWorld",
+          "Roadster",
+          "fashioneazy",
+          "barnboys",
+          // Add more community names as needed
+        ];
+        const randomIndex = Math.floor(Math.random() * communityNames.length);
+        return communityNames[randomIndex];
+      };
+    
+      // Assign random community names to polls
+      const pollsWithCommunityNames = polls.map(poll => ({
+        ...poll,
+        communityName: getRandomCommunityName(),
+      }));
+
+  const updatePoll = (updatedPoll) => {
+    const updatedPolls = polls.map(poll => poll.question === updatedPoll.question ? updatedPoll : poll);
+    setPolls(updatedPolls);
+  };
+
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>Community Polls</Text>
+      <FlatList
+        data={pollsWithCommunityNames}
+        keyExtractor={(item, index) => index.toString()}
+        renderItem={({ item }) => <PollItem poll={item} updatePoll={updatePoll} communityName={item.communityName}/>}
+      />
+    </View>
   );
 };
 
@@ -102,11 +127,17 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 8,
   },
+  communityName: {
+    fontSize: FontSize.body_size,
+    fontFamily: FontFamily.bodyRegular,
+    marginBottom: 5,
+    color: Color.colorSecondary,
+  },
   optionImage: {
-    width: 30, // Adjust size as needed
-    height: 30, // Adjust size as needed
+    width: 30,
+    height: 30,
     marginRight: 10,
-    borderRadius: 15, // Adjust for rounded images
+    borderRadius: 15,
   },
   optionText: {
     flex: 1,
@@ -120,7 +151,7 @@ const styles = StyleSheet.create({
     color: Color.colorSecondary,
   },
   highlightedOption: {
-    backgroundColor: "#ffd700", // Highlight color (e.g., gold)
+    backgroundColor: "#ffd700",
   },
 });
 

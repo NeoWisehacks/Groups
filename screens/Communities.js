@@ -13,6 +13,9 @@ const CommunitiesList = ({ navigation }) => {
   const handleAddCommunityPoll = () => {
     navigation.navigate('CommunityPoll'); // Navigate to the screen where you will add a community poll
   };
+  const AllCommunityPoll = () => {
+    navigation.navigate('PollsPage'); // Navigate to the screen where you will add a community poll
+  };
 
   return (
     <ScrollView contentContainerStyle={styles.scrollViewContainer}>
@@ -112,6 +115,14 @@ const CommunitiesList = ({ navigation }) => {
         />
         <Text style={styles.buttonText}>Add Community Poll</Text>
       </TouchableOpacity>
+
+      <TouchableOpacity style={styles.addButton} onPress={AllCommunityPoll}>
+      <Image 
+          style={styles.buttonImage} 
+          source={require("../assets/notch1.png")} // replace with your image path
+        />
+        <Text style={styles.buttonText}>View All Polls</Text>
+      </TouchableOpacity>
           <GroupRow
             rectangle5329={require("../assets/rectangle-5329.png")}
             groupName="Community"
@@ -185,7 +196,7 @@ const styles = StyleSheet.create({
 
   },
   addButton: {
-    marginTop: 20, // Adjust as needed
+   // Adjust as needed
     // alignSelf: 'flex-start', // To align the button to the top-left corner
     backgroundColor: Color.colorPrimary,
     paddingVertical: 10,
