@@ -1,165 +1,209 @@
 import * as React from "react";
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View, Text, TouchableOpacity, ScrollView } from "react-native";
 import { Image } from "expo-image";
 import ModeLightTypeDefault from "../components/ModeLightTypeDefault";
 import Toggle from "../components/Toggle";
 import GroupRow from "../components/GroupRow";
 import Navbar from "../components/Navbar";
-import CommunityPreview from "../components/CommunityPreview";
+import CommunityPoll from "./CommunityPoll";
 import { Padding, Border, FontFamily, Color, FontSize } from "../GlobalStyles";
 
-const Communities = () => {
+
+const CommunitiesList = ({ navigation }) => {
+  const handleAddCommunityPoll = () => {
+    navigation.navigate('CommunityPoll'); // Navigate to the screen where you will add a community poll
+  };
+
   return (
-    <View style={styles.communities}>
-      <View style={styles.def}>
-        <View style={[styles.homeIndicator, styles.homePosition]}>
-          <View style={[styles.homeIndicator1, styles.homePosition]} />
-        </View>
-        <ModeLightTypeDefault
-          notch={require("../assets/notch.png")}
-          wifi={require("../assets/wifi.png")}
-          recordingIndicator={require("../assets/recording-indicator.png")}
-          leftSide={require("../assets/left-side1.png")}
-          modeLightTypeDefaultPosition="absolute"
-          modeLightTypeDefaultTop={0}
-          modeLightTypeDefaultLeft={0}
-          modeLightTypeDefaultWidth={375}
-          modeLightTypeDefaultBackgroundColor="unset"
-        />
-      </View>
-      <View style={[styles.frameParent, styles.parentFlexBox]}>
-        <View style={[styles.ioncartOutlineParent, styles.parentFrameFlexBox]}>
-          <Image
-            style={[styles.ioncartOutlineIcon, styles.iconLayout]}
-            contentFit="cover"
-            source={require("../assets/ioncartoutline.png")}
-          />
-          <Text style={styles.search}>Search</Text>
-        </View>
-        <View
-          style={[
-            styles.heroiconsOutlinecameraParent,
-            styles.parentFrameFlexBox,
-          ]}
-        >
-          <Image
-            style={[styles.ioncartOutlineIcon, styles.iconLayout]}
-            contentFit="cover"
-            source={require("../assets/heroiconsoutlinecamera.png")}
-          />
-          <Image
-            style={[styles.microphone2Icon, styles.iconLayout]}
-            contentFit="cover"
-            source={require("../assets/microphone2.png")}
+    <ScrollView contentContainerStyle={styles.scrollViewContainer}>
+      <View style={styles.communitiesList}>
+        <View style={styles.def}>
+          <View style={[styles.homeIndicator, styles.homePosition]}>
+            <View style={[styles.homeIndicator1, styles.homePosition]} />
+          </View>
+          <ModeLightTypeDefault
+            notch={require("../assets/notch.png")}
+            wifi={require("../assets/wifi.png")}
+            recordingIndicator={require("../assets/recording-indicator.png")}
+            leftSide={require("../assets/left-side1.png")}
+            modeLightTypeDefaultPosition="absolute"
+            modeLightTypeDefaultTop={0}
+            modeLightTypeDefaultLeft={0}
+            modeLightTypeDefaultWidth={375}
+            modeLightTypeDefaultBackgroundColor="unset"
           />
         </View>
-      </View>
-      <View style={[styles.frameGroup, styles.parentFrameFlexBox]}>
-        <View style={styles.parentFrameFlexBox}>
-          <View style={[styles.fwdParent, styles.parentFrameFlexBox]}>
-            <Text style={styles.fwd}>fwd</Text>
+        <View style={[styles.frameParent, styles.parentFlexBox]}>
+          <View style={[styles.ioncartOutlineParent, styles.parentFrameFlexBox]}>
+            <Image
+              style={[styles.ioncartOutlineIcon, styles.iconLayout]}
+              contentFit="cover"
+              source={require("../assets/ioncartoutline.png")}
+            />
+            <Text style={styles.search}>Search</Text>
+          </View>
+          <View
+            style={[
+              styles.heroiconsOutlinecameraParent,
+              styles.parentFrameFlexBox,
+            ]}
+          >
+            <Image
+              style={[styles.ioncartOutlineIcon, styles.iconLayout]}
+              contentFit="cover"
+              source={require("../assets/heroiconsoutlinecamera.png")}
+            />
+            <Image
+              style={[styles.microphone2Icon, styles.iconLayout]}
+              contentFit="cover"
+              source={require("../assets/microphone2.png")}
+            />
+          </View>
+        </View>
+        <View style={[styles.frameGroup, styles.parentFrameFlexBox]}>
+          <View style={styles.parentFrameFlexBox}>
+            <View style={[styles.fwdParent, styles.parentFrameFlexBox]}>
+              <Text style={styles.fwd}>fwd</Text>
+              <Image
+                style={[styles.arrowCaretDownMd, styles.addCircleIconLayout]}
+                contentFit="cover"
+                source={require("../assets/arrow--caret-down-md.png")}
+              />
+            </View>
+            <View style={styles.becomeParent}>
+              <Text style={[styles.become, styles.newTypo]}>BECOME</Text>
+              <View style={styles.insiderParent}>
+                <Text style={[styles.insider, styles.newTypo]}>INSIDER</Text>
+                <Image
+                  style={styles.arrowChevronRight}
+                  contentFit="cover"
+                  source={require("../assets/arrow--chevron-right.png")}
+                />
+              </View>
+            </View>
+          </View>
+          <View style={styles.parentFrameFlexBox}>
             <Image
               style={[styles.arrowCaretDownMd, styles.addCircleIconLayout]}
               contentFit="cover"
-              source={require("../assets/arrow--caret-down-md.png")}
+              source={require("../assets/communication--bell.png")}
+            />
+            <Image
+              style={styles.vectorIcon}
+              contentFit="cover"
+              source={require("../assets/vector.png")}
+            />
+            <Image
+              style={styles.avatarIcon}
+              contentFit="cover"
+              source={require("../assets/avatar.png")}
             />
           </View>
-          <View style={styles.becomeParent}>
-            <Text style={[styles.become, styles.joinTypo]}>BECOME</Text>
-            <View style={styles.insiderParent}>
-              <Text style={[styles.insider, styles.joinTypo]}>INSIDER</Text>
-              <Image
-                style={styles.arrowChevronRight}
-                contentFit="cover"
-                source={require("../assets/arrow--chevron-right.png")}
-              />
-            </View>
-          </View>
         </View>
-        <View style={styles.parentFrameFlexBox}>
-          <Image
-            style={[styles.arrowCaretDownMd, styles.addCircleIconLayout]}
-            contentFit="cover"
-            source={require("../assets/communication--bell.png")}
+        <Toggle />
+        
+        
+      
+        <View style={styles.list}>
+        <TouchableOpacity style={styles.addButton} onPress={handleAddCommunityPoll}>
+        <Image 
+          style={styles.buttonImage} 
+          source={require("../assets/addcircle.png")} // replace with your image path
+        />
+        <Text style={styles.buttonText}>Add Community Poll</Text>
+      </TouchableOpacity>
+          <GroupRow
+            rectangle5329={require("../assets/rectangle-5329.png")}
+            groupName="Community"
           />
-          <Image
-            style={styles.vectorIcon}
-            contentFit="cover"
-            source={require("../assets/vector.png")}
+          <GroupRow
+            rectangle5329={require("../assets/rectangle-53292.png")}
+            groupName="Community"
           />
-          <Image
-            style={styles.avatarIcon}
-            contentFit="cover"
-            source={require("../assets/avatar.png")}
+          <GroupRow
+            rectangle5329={require("../assets/rectangle-53292.png")}
+            groupName="Community"
+          />
+          <GroupRow
+            rectangle5329={require("../assets/rectangle-53292.png")}
+            groupName="Community"
+          />
+          <GroupRow
+            rectangle5329={require("../assets/rectangle-53292.png")}
+            groupName="Community"
+          />
+          <GroupRow
+            rectangle5329={require("../assets/rectangle-53292.png")}
+            groupName="Community"
+          />
+          <GroupRow
+            rectangle5329={require("../assets/rectangle-53292.png")}
+            groupName="Community"
+          />
+          <GroupRow
+            rectangle5329={require("../assets/rectangle-53292.png")}
+            groupName="Community"
+          />
+          <GroupRow
+            rectangle5329={require("../assets/rectangle-53292.png")}
+            groupName="Community"
+          />
+          <GroupRow
+            rectangle5329={require("../assets/rectangle-53292.png")}
+            groupName="Community"
           />
         </View>
+        <Navbar
+          vuesaxlinearvideoCircle={require("../assets/vuesaxlinearvideocircle.png")}
+          vuesaxlinearbag2={require("../assets/vuesaxlinearbag2.png")}
+        />
+        <View style={[styles.newParent, styles.parentFlexBox]}>
+          <Text style={[styles.new, styles.newTypo]}>New</Text>
+          <Image
+            style={[styles.addCircleIcon, styles.addCircleIconLayout]}
+            contentFit="cover"
+            source={require("../assets/addcircle.png")}
+          />
+        </View>
+        {/* <TouchableOpacity style={styles.plusButton} onPress={handleAddCommunityPoll}>
+          <Image
+            style={styles.plusIcon}
+            source={require("../assets/addcircle.png")} // Replace with your plus icon image source
+          />
+          <Text style={styles.plusLabel}>Add a Community Poll</Text>
+        </TouchableOpacity> */}
       </View>
-      <Toggle />
-      <View style={[styles.list, styles.listPosition]}>
-        <GroupRow
-          rectangle5329={require("../assets/rectangle-5329.png")}
-          groupName="Community"
-        />
-        <GroupRow
-          rectangle5329={require("../assets/rectangle-53292.png")}
-          groupName="Community"
-        />
-        <GroupRow
-          rectangle5329={require("../assets/rectangle-53292.png")}
-          groupName="Community"
-        />
-        <GroupRow
-          rectangle5329={require("../assets/rectangle-53292.png")}
-          groupName="Community"
-        />
-        <GroupRow
-          rectangle5329={require("../assets/rectangle-53292.png")}
-          groupName="Community"
-        />
-        <GroupRow
-          rectangle5329={require("../assets/rectangle-53292.png")}
-          groupName="Community"
-        />
-        <GroupRow
-          rectangle5329={require("../assets/rectangle-53292.png")}
-          groupName="Community"
-        />
-        <GroupRow
-          rectangle5329={require("../assets/rectangle-53292.png")}
-          groupName="Community"
-        />
-        <GroupRow
-          rectangle5329={require("../assets/rectangle-53292.png")}
-          groupName="Community"
-        />
-        <GroupRow
-          rectangle5329={require("../assets/rectangle-53292.png")}
-          groupName="Community"
-        />
-      </View>
-      <Navbar
-        vuesaxlinearvideoCircle={require("../assets/vuesaxlinearvideocircle.png")}
-        vuesaxlinearbag2={require("../assets/vuesaxlinearbag2.png")}
-      />
-      <View style={[styles.joinParent, styles.parentFlexBox]}>
-        <Text style={[styles.join, styles.joinTypo]}>Join</Text>
-        <Image
-          style={[styles.addCircleIcon, styles.addCircleIconLayout]}
-          contentFit="cover"
-          source={require("../assets/addcircle.png")}
-        />
-      </View>
-      <View style={[styles.frameView, styles.listPosition]}>
-        <CommunityPreview propMarginLeft="unset" />
-        <CommunityPreview propMarginLeft={16} />
-        <CommunityPreview propMarginLeft={16} />
-        <CommunityPreview propMarginLeft={16} />
-      </View>
-    </View>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
+  buttonImage:{
+    width: 20,
+    height: 20,
+    resizeMode: "contain",
+
+  },
+  addButton: {
+    marginTop: 20, // Adjust as needed
+    // alignSelf: 'flex-start', // To align the button to the top-left corner
+    backgroundColor: Color.colorPrimary,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: Border.br_11xl,
+    flexDirection:'row',
+  },
+  buttonText: {
+    color: "black",
+    fontSize: FontSize.body_size,
+    fontFamily: FontFamily.bodyRegular,
+    marginLeft:10,
+  },
+  // plusLabel: {
+  //   color: "#fff", // Replace with your desired text color
+  //   fontFamily: FontFamily.interRegular,
+  //   fontSize: FontSize.body_size,
+  // },
   homePosition: {
     height: 5,
     width: 134,
@@ -188,15 +232,10 @@ const styles = StyleSheet.create({
     height: 24,
     width: 24,
   },
-  joinTypo: {
+  newTypo: {
     fontFamily: FontFamily.small,
     fontWeight: "500",
     textAlign: "left",
-  },
-  listPosition: {
-    width: 390,
-    left: 0,
-    position: "absolute",
   },
   homeIndicator1: {
     marginLeft: -67,
@@ -245,7 +284,7 @@ const styles = StyleSheet.create({
   fwd: {
     fontSize: FontSize.h5_size,
     fontWeight: "900",
-    fontFamily: FontFamily.h5Black,
+    fontFamily: FontFamily.h5_size,
     color: Color.colorBlack,
     textAlign: "left",
   },
@@ -305,20 +344,22 @@ const styles = StyleSheet.create({
     width: 370,
     justifyContent: "space-between",
     position: "absolute",
-    flexDirection: "row",
   },
   list: {
-    top: 322,
-    height: 462,
+    top: 184,
+    left: 0,
+    width: 390,
+    height: 600,
+    position: "absolute",
   },
-  join: {
+  new: {
     fontSize: FontSize.body_size,
     color: Color.lightForegroundsFgOnInverted,
   },
   addCircleIcon: {
     marginLeft: 10,
   },
-  joinParent: {
+  newParent: {
     top: 733,
     left: 282,
     backgroundColor: Color.selected,
@@ -326,20 +367,17 @@ const styles = StyleSheet.create({
     borderWidth: 1.5,
     height: 38,
   },
-  frameView: {
-    top: 196,
-    paddingHorizontal: Padding.p_base,
-    paddingVertical: Padding.p_5xs,
-    alignItems: "center",
-    flexDirection: "row",
-  },
-  communities: {
+  communitiesList: {
     backgroundColor: Color.lightForegroundsFgOnInverted,
     width: "100%",
     height: 844,
     overflow: "hidden",
     flex: 1,
   },
+  scrollViewContainer: {
+    paddingBottom: 100, // Adjust this value to ensure the button is fully visible
+  },
 });
 
-export default Communities;
+export default CommunitiesList;
+

@@ -1,406 +1,274 @@
 import * as React from "react";
-import { Image } from "expo-image";
-import { StyleSheet, Text, View ,ScrollView} from "react-native";
-import OpinionPoll from "../components/OpinionPoll";
+import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
+import Poll from "../components/OpinionPoll2";
 import Outfit from "../components/Outfit";
 import ModeLightTypeDefault from "../components/ModeLightTypeDefault";
 import FrameComponent from "../components/FrameComponent";
 import { Color, Border, Padding, FontSize, FontFamily } from "../GlobalStyles";
-import OpinionPoll1 from "../components/OpinionPoll1";
-import Poll from "../components/OpinionPoll2";
 
 const Group = () => {
   return (
-    <ScrollView contentContainerStyle={styles.scrollViewContent}>
-    <View style={[styles.group, styles.groupLayout]}>
-      <View style={styles.chat}>
-        <View style={styles.newMwssagesParent}>
-          <Image
-            style={styles.iconLayout}
-            contentFit="cover"
-            source={require("../assets/new-mwssages2.png")}
-          />
-          <View style={styles.user1Parent}>
-            <Text style={[styles.user1, styles.user1FlexBox]}>user 1</Text>
-            <View style={[styles.productWithDetails, styles.opinionLayout]}>
-              <View
-                style={[styles.newMwssagesGroup, styles.frameParentSpaceBlock]}
-              >
-                <View style={styles.newLayout}>
-                  <Image
-                    style={[styles.newMwssagesChild, styles.newPosition]}
-                    contentFit="cover"
-                    source={require("../assets/rectangle-532913.png")}
-                  />
-                  <Image
-                    style={[styles.newMwssagesItem, styles.newPosition]}
-                    contentFit="cover"
-                    source={require("../assets/ellipse-23451.png")}
-                  />
-                </View>
-                <Text style={[styles.brandName, styles.brandNameTypo]}>
-                  Brand Name
-                </Text>
-              </View>
+    <View style={styles.container}>
+      <ScrollView contentContainerStyle={styles.scrollViewContent}>
+        <View style={styles.group}>
+          <View style={styles.chat}>
+            <View style={styles.newMessagesParent}>
               <Image
-                style={[styles.productWithDetailsChild, styles.groupLayout]}
+                style={styles.iconLayout}
                 contentFit="cover"
-                source={require("../assets/rectangle-53282.png")}
+                source={require("../assets/new-mwssages.png")}
               />
-              <View style={styles.printedYellowKurtaForWomenParent}>
-                <Text style={[styles.printedYellowKurta, styles.brandNameTypo]}>
-                  printed Yellow Kurta for women
-                </Text>
-                <View style={styles.parent}>
-                  <Text style={[styles.text, styles.textTypo1]}>$69.69</Text>
-                  <View style={styles.phstarFillParent}>
+              <View style={styles.user1Parent}>
+                <Text style={styles.user1}>User 1</Text>
+                <View style={styles.productWithDetails}>
+                  <View style={styles.newMessagesGroup}>
                     <Image
-                      style={styles.phstarFillIcon}
+                      style={styles.newMessagesChild}
                       contentFit="cover"
-                      source={require("../assets/phstarfill.png")}
+                      source={require("../assets/rectangle-532913.png")}
                     />
-                    <View style={styles.container}>
-                      <Text style={styles.text1}>{`4.5 `}</Text>
-                      <Text style={[styles.text2, styles.textTypo]}>|</Text>
-                      <Text style={[styles.text3, styles.textTypo]}>1040</Text>
+                    <Image
+                      style={styles.newMessagesItem}
+                      contentFit="cover"
+                      source={require("../assets/ellipse-23451.png")}
+                    />
+                  </View>
+                  <Text style={styles.brandName}>Brand Name</Text>
+                  <Image
+                    style={styles.productWithDetailsChild}
+                    contentFit="cover"
+                    source={require("../assets/rectangle-53282.png")}
+                  />
+                  <View style={styles.printedYellowKurtaForWomenParent}>
+                    <Text style={styles.printedYellowKurta}>
+                      Printed Yellow Kurta for Women
+                    </Text>
+                    <View style={styles.priceContainer}>
+                      <Text style={styles.price}>$69.69</Text>
+                      <View style={styles.ratingContainer}>
+                        <Image
+                          style={styles.starIcon}
+                          contentFit="cover"
+                          source={require("../assets/phstarfill.png")}
+                        />
+                        <Text style={styles.rating}>4.5</Text>
+                        <Text style={styles.ratingSeparator}>|</Text>
+                        <Text style={styles.ratingCount}>1040</Text>
+                      </View>
                     </View>
                   </View>
                 </View>
+                <Poll />
+                <Outfit
+                  rectangle5329={require("../assets/rectangle-532916.png")}
+                  rectangle53291={require("../assets/rectangle-532917.png")}
+                  rectangle53292={require("../assets/rectangle-532918.png")}
+                  outfitPosition="unset"
+                  outfitMarginTop={1}
+                />
               </View>
             </View>
-            {/* <OpinionPoll /> */}
-            {/* <OpinionPoll1/> */}
-            <Poll/>
-            <Outfit
-              rectangle5329={require("../assets/rectangle-532916.png")}
-              rectangle53291={require("../assets/rectangle-532917.png")}
-              rectangle53292={require("../assets/rectangle-532918.png")}
-              outfitPosition="unset"
-              outfitMarginTop={1}
+          </View>
+          <ModeLightTypeDefault
+            notch={require("../assets/notch.png")}
+            wifi={require("../assets/wifi2.png")}
+            recordingIndicator={require("../assets/recording-indicator.png")}
+            leftSide={require("../assets/left-side2.png")}
+            modeLightTypeDefaultPosition="absolute"
+            modeLightTypeDefaultTop={1}
+            modeLightTypeDefaultLeft={0}
+            modeLightTypeDefaultWidth={390}
+            modeLightTypeDefaultBackgroundColor="#fff"
+          />
+          <FrameComponent />
+        </View>
+        <View style={styles.fixedBottom}>
+          <View style={styles.inputContainer}>
+            <Image
+              style={styles.attachIcon}
+              source={require("../assets/edit--paperclip-attechment-tilt.png")}
             />
-            <View style={[styles.opinionWrapper, styles.opinionLayout]}>
-              <Text style={styles.opinion}>Opinion</Text>
+            <Text style={styles.inputText}>Type Something</Text>
+            <View style={styles.cameraMicrophoneContainer}>
+              <Image
+                style={styles.cameraIcon}
+                source={require("../assets/firrcamera.png")}
+              />
+              <Image
+                style={styles.microphoneIcon}
+                source={require("../assets/microphone21.png")}
+              />
             </View>
           </View>
         </View>
-        <View style={[styles.frameParent, styles.frameParentSpaceBlock]}>
-          <View style={[styles.opinionContainer, styles.opinionLayout]}>
-            <Text style={styles.opinion}>Opinion</Text>
-          </View>
-          <View style={[styles.opinionWrapper, styles.opinionLayout]}>
-            <Text style={styles.opinion}>Opinion</Text>
-          </View>
-          <View style={[styles.opinionWrapper, styles.opinionLayout]}>
-            <Text style={styles.opinion}>Opinion</Text>
-          </View>
-        </View>
-      </View>
-      <View style={[styles.homeIndicator, styles.homePosition]}>
-        <View style={[styles.homeIndicator1, styles.homePosition]} />
-      </View>
-      <ModeLightTypeDefault
-        notch={require("../assets/notch.png")}
-        wifi={require("../assets/wifi2.png")}
-        recordingIndicator={require("../assets/recording-indicator.png")}
-        leftSide={require("../assets/left-side2.png")}
-        modeLightTypeDefaultPosition="absolute"
-        modeLightTypeDefaultTop={1}
-        modeLightTypeDefaultLeft={0}
-        modeLightTypeDefaultWidth={390}
-        modeLightTypeDefaultBackgroundColor="#fff"
-      />
-      <FrameComponent />
-      <View style={styles.instanceParent}>
-        <View style={styles.editPaperclipAttechmentTiWrapper}>
-          <Image
-            style={[
-              styles.editPaperclipAttechmentTi,
-              styles.microphone2IconLayout,
-            ]}
-            contentFit="cover"
-            source={require("../assets/edit--paperclip-attechment-tilt.png")}
-          />
-        </View>
-        <View style={styles.editPaperclipAttechmentTi1}>
-          <Text style={[styles.typeSomething, styles.textTypo2]}>
-            Type Something
-          </Text>
-          <View style={styles.fiRrCameraParent}>
-            <Image
-              style={[styles.fiRrCameraIcon, styles.iconLayout]}
-              contentFit="cover"
-              source={require("../assets/firrcamera.png")}
-            />
-            <Image
-              style={[styles.microphone2Icon, styles.microphone2IconLayout]}
-              contentFit="cover"
-              source={require("../assets/microphone21.png")}
-            />
-          </View>
-        </View>
-      </View>
+      </ScrollView>
     </View>
-    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+  },
   scrollViewContent: {
     flexGrow: 1,
+    paddingBottom: 20, // Adjust as needed
   },
-  groupLayout: {
-    width: "100%",
-    overflow: "hidden",
-  },
-  user1FlexBox: {
-    textAlign: "left",
-    color: Color.colorDimgray_100,
-  },
-  opinionLayout: {
-    borderRadius: Border.br_8xs,
+  group: {
+    flex: 1,
     backgroundColor: Color.lightForegroundsFgOnInverted,
+    alignItems: "center",
   },
-  frameParentSpaceBlock: {
-    paddingVertical: Padding.p_9xs,
-    paddingHorizontal: Padding.p_8xs,
-    alignSelf: "stretch",
+  chat: {
+    paddingHorizontal: 16,
+    paddingTop: 16,
+    width: "100%",
   },
-  newPosition: {
-    borderRadius: Border.br_21xl,
-    top: 0,
-    position: "absolute",
-  },
-  brandNameTypo: {
-    color: Color.colorGray_100,
-    textTransform: "capitalize",
-    lineHeight: 16,
-    fontSize: FontSize.smallRegular_size,
-    textAlign: "left",
-  },
-  textTypo1: {
-    fontFamily: FontFamily.interSemiBold,
-    fontWeight: "600",
-  },
-  textTypo: {
-    marginLeft: 1,
-    fontFamily: FontFamily.textCompactTextCompactSmallPlus,
-    fontWeight: "500",
-    lineHeight: 16,
-    textAlign: "left",
-  },
-  homePosition: {
-    height: 5,
-    width: 134,
-    left: "50%",
-    marginLeft: -67,
-    position: "absolute",
-  },
-  microphone2IconLayout: {
-    height: 24,
-    width: 24,
-  },
-  textTypo2: {
-    textTransform: "capitalize",
-    lineHeight: 16,
-    fontSize: FontSize.smallRegular_size,
+  newMessagesParent: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 16,
   },
   iconLayout: {
-    height: 20,
     width: 20,
+    height: 20,
+    marginRight: 8,
+  },
+  user1Parent: {
+    width: "100%",
+    marginLeft: 6,
   },
   user1: {
-    fontSize: FontSize.size_5xs,
-    lineHeight: 20,
-    display: "flex",
-    width: 49,
-    height: 7,
-    alignItems: "center",
+    fontSize: 16,
     fontFamily: FontFamily.montserratRegular,
-    textAlign: "left",
     color: Color.colorDimgray_100,
+    marginBottom: 8,
   },
-  newMwssagesChild: {
-    height: 25,
+  productWithDetails: {
+    backgroundColor: Color.lightForegroundsFgOnInverted,
+    borderRadius: Border.br_8xs,
+    padding: 16,
+    marginBottom: 16,
+  },
+  newMessagesGroup: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 8,
+  },
+  newMessagesChild: {
     width: 25,
-    left: 0,
+    height: 25,
+    marginRight: 8,
   },
-  newMwssagesItem: {
-    left: 19,
+  newMessagesItem: {
     width: 6,
     height: 6,
   },
-  newLayout: {
-    height: 25,
-    width: 25,
-  },
   brandName: {
-    width: 140,
-    marginLeft: 8,
     fontFamily: FontFamily.interSemiBold,
-    fontWeight: "600",
-  },
-  newMwssagesGroup: {
-    alignItems: "center",
-    flexDirection: "row",
+    fontSize: 14,
+    color: Color.colorGray_100,
+    marginBottom: 8,
   },
   productWithDetailsChild: {
     maxWidth: "100%",
     height: 196,
     alignSelf: "stretch",
     overflow: "hidden",
-  },
-  printedYellowKurta: {
-    fontWeight: "300",
-    fontFamily: FontFamily.interLight,
-    width: 200,
-  },
-  text: {
-    color: Color.colorForestgreen,
-    textAlign: "right",
-    textTransform: "capitalize",
-    lineHeight: 16,
-    fontSize: FontSize.smallRegular_size,
-  },
-  phstarFillIcon: {
-    width: 10,
-    height: 10,
-    overflow: "hidden",
-  },
-  text1: {
-    fontFamily: FontFamily.textCompactTextCompactSmallPlus,
-    fontWeight: "500",
-    fontSize: FontSize.xSMALL_size,
-    lineHeight: 16,
-    textAlign: "left",
-    color: Color.colorDimgray_100,
-  },
-  text2: {
-    fontSize: FontSize.size_7xs,
-    color: Color.colorGainsboro_300,
-  },
-  text3: {
-    fontSize: FontSize.xSMALL_size,
-    marginLeft: 1,
-    color: Color.colorDimgray_100,
-  },
-  container: {
-    marginLeft: 4,
-    alignItems: "center",
-    flexDirection: "row",
-  },
-  phstarFillParent: {
-    marginLeft: 79,
-    alignItems: "center",
-    flexDirection: "row",
-  },
-  parent: {
-    marginTop: 5,
-    flexDirection: "row",
+    borderRadius: Border.br_8xs,
+    marginTop: 8,
   },
   printedYellowKurtaForWomenParent: {
-    padding: Padding.p_8xs,
-    alignSelf: "stretch",
-  },
-  productWithDetails: {
-    marginTop: 1,
+    flexDirection: "row",
     alignItems: "center",
+    justifyContent: "space-between",
+    marginTop: 8,
   },
-  opinion: {
-    lineHeight: 12,
-    color: Color.colorDimgray_200,
-    fontSize: FontSize.smallRegular_size,
-    textAlign: "left",
-    fontFamily: FontFamily.montserratRegular,
-  },
-  opinionWrapper: {
-    padding: Padding.p_8xs,
-    marginTop: 1,
-    flexDirection: "row",
-  },
-  user1Parent: {
-    width: 329,
-    marginLeft: 6,
-  },
-  newMwssagesParent: {
-    paddingLeft: Padding.p_8xs,
-    paddingBottom: Padding.p_8xs,
-    alignItems: "flex-end",
-    flexDirection: "row",
-    alignSelf: "stretch",
-  },
-  opinionContainer: {
-    padding: Padding.p_8xs,
-    flexDirection: "row",
-  },
-  frameParent: {
-    justifyContent: "flex-end",
-    marginTop: 1,
-    alignItems: "flex-end",
-  },
-  chat: {
-    top: 110,
-    width: 390,
-    height: 660,
-    left: 0,
-    position: "absolute",
-  },
-  homeIndicator1: {
-    bottom: 0,
-    backgroundColor: Color.colorBlack,
-    borderRadius: Border.br_81xl,
-  },
-  homeIndicator: {
-    bottom: 7,
-  },
-  editPaperclipAttechmentTi: {
-    overflow: "hidden",
-  },
-  editPaperclipAttechmentTiWrapper: {
-    backgroundColor: "#f1f1f1",
-    padding: Padding.p_3xs,
-    borderRadius: Border.br_81xl,
-    justifyContent: "flex-end",
-  },
-  typeSomething: {
-    fontFamily: FontFamily.interRegular,
-    textAlign: "left",
+  printedYellowKurta: {
+    fontFamily: FontFamily.interLight,
+    fontSize: 12,
     color: Color.colorDimgray_100,
-    flex: 1,
+    width: 200,
   },
-  fiRrCameraIcon: {
-    overflow: "hidden",
-  },
-  microphone2Icon: {
-    marginLeft: 15,
-  },
-  fiRrCameraParent: {
-    marginLeft: 8,
-    alignItems: "center",
+  priceContainer: {
     flexDirection: "row",
-  },
-  editPaperclipAttechmentTi1: {
-    borderRadius: Border.br_11xl,
-    backgroundColor: "#f0f0f0",
-    width: 310,
-    paddingHorizontal: 12,
-    paddingVertical: Padding.p_3xs,
-    marginLeft: 5,
     alignItems: "center",
-    flexDirection: "row",
   },
-  instanceParent: {
-    top: 780,
-    left: 16,
-    alignItems: "center",
+  price: {
+    fontFamily: FontFamily.interSemiBold,
+    fontSize: 12,
+    color: Color.colorForestgreen,
+    marginRight: 8,
+  },
+  ratingContainer: {
     flexDirection: "row",
+    alignItems: "center",
+  },
+  starIcon: {
+    width: 10,
+    height: 10,
+    marginRight: 4,
+  },
+  rating: {
+    fontFamily: FontFamily.textCompactTextCompactSmallPlus,
+    fontSize: 12,
+    color: Color.colorDimgray_100,
+    marginRight: 4,
+  },
+  ratingSeparator: {
+    fontSize: 12,
+    color: Color.colorGainsboro_300,
+    marginRight: 4,
+  },
+  ratingCount: {
+    fontFamily: FontFamily.textCompactTextCompactSmallPlus,
+    fontSize: 12,
+    color: Color.colorDimgray_100,
+  },
+  fixedBottom: {
     position: "absolute",
+    bottom: 0,
+    left: 0,
+    right: 0,
+    backgroundColor: "#f0f0f0",
+    paddingVertical: 10,
+    paddingHorizontal: 16,
+    flexDirection: "row",
+    alignItems: "center",
   },
-  group: {
-    height: 844,
-    overflow: "hidden",
+  inputContainer: {
     flex: 1,
-    backgroundColor: Color.lightForegroundsFgOnInverted,
-    width: "100%",
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: "#f1f1f1",
+    borderRadius: Border.br_81xl,
+    paddingHorizontal: 12,
+    width:"70%",
+  },
+  attachIcon: {
+    width: 20,
+    height: 20,
+    marginRight: 8,
+  },
+  inputText: {
+    flex: 1,
+    fontFamily: FontFamily.interRegular,
+    color: Color.colorDimgray_100,
+    fontSize: 14,
+  },
+  cameraMicrophoneContainer: {
+    flexDirection: "row",
+    marginLeft: 8,
+  },
+  cameraIcon: {
+    width: 20,
+    height: 20,
+    marginRight: 8,
+  },
+  microphoneIcon: {
+    width: 20,
+    height: 20,
   },
 });
 

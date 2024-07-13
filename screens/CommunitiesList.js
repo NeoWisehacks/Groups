@@ -1,5 +1,5 @@
 import * as React from "react";
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import { Image } from "expo-image";
 import ModeLightTypeDefault from "../components/ModeLightTypeDefault";
 import Toggle from "../components/Toggle";

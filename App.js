@@ -32,6 +32,8 @@ import { View, Text, Pressable, TouchableOpacity } from "react-native";
 import RightSwipFeature from "./screens/RightSwipFeature";
 import LeftSwipFeature from "./screens/RightSwipFeature";
 import SwipFeature from "./screens/SwipFeature";
+import  CommunityPoll  from "./screens/CommunityPoll";
+import PollsPage from "./screens/PollsPage";
 
 const App = () => {
   const [hideSplashScreen, setHideSplashScreen] = React.useState(true);
@@ -59,6 +61,11 @@ const App = () => {
         {hideSplashScreen ? (
           <Stack.Navigator screenOptions={{ headerShown: false }}>
             <Stack.Screen
+              name="Communities"
+              component={Communities}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
               name="Home"
               component={Home}
               options={{ headerShown: false }}
@@ -83,14 +90,24 @@ const App = () => {
               component={LeftSwipFeature}
               options={{ headerShown: false }}
             />
-            <Stack.Screen
+            {/* <Stack.Screen
               name="Communities"
               component={Communities}
+              options={{ headerShown: false }}
+            /> */}
+            <Stack.Screen
+              name="PollsPage"
+              component={PollsPage}
               options={{ headerShown: false }}
             />
             <Stack.Screen
               name="CommunitiesList"
               component={CommunitiesList}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="CommunityPoll"
+              component={CommunityPoll}
               options={{ headerShown: false }}
             />
             <Stack.Screen
