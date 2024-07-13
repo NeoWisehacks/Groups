@@ -54,23 +54,14 @@ import {
       },
     });
     const removeCard = useCallback((dx) => {
-      //const db = getDatabase();
       var idx
       console.log(dx);
       console.log(curr);
       if(dx>=0 || dx['value']>=0){
         likes[curr]=likes[curr]+1;
-        // idx=curr+1
-        // set(ref(db, 'outfits/' + idx), {
-        //   likes: likes+1,
-        // });
       }
       else if (dx<0 || dx['value']<0){
         dislikes[curr]=dislikes[curr]+1;
-        // idx=curr+1
-        // set(ref(db, 'outfits/' + idx), {
-        //   dislikes: dislikes+1,
-        // });
       }
       curr=(curr+1)%4;
       setData(prevState => prevState.slice(1));
