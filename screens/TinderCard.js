@@ -1,10 +1,11 @@
 import {View, Text, Dimensions, Image, Animated} from 'react-native';
 import React, {useCallback} from 'react';
 import TinderLike from './TinderLike';
+
 // import LinearGradient from 'react-native-linear-gradient';
 import { LinearGradient } from "expo-linear-gradient";
 const {height, width} = Dimensions.get('window');
-const TinderCard = ({item, isFirst, swipe, ...rest}) => {
+const TinderCard = ({item, image,isFirst, swipe, ...rest}) => {
   const rotate = swipe.x.interpolate({
     inputRange: [-100, 0, 100],
     outputRange: ['8deg', '0deg', '-8deg'],
@@ -57,7 +58,7 @@ const TinderCard = ({item, isFirst, swipe, ...rest}) => {
       ]}
       {...rest}>
       <Image
-        source={item.image}
+        source={image}
         style={{width: '100%', height: '100%', borderRadius: 20}}
       />
       {isFirst && renderChoice()}
@@ -72,20 +73,20 @@ const TinderCard = ({item, isFirst, swipe, ...rest}) => {
         <Text
         style={{
           position: 'absolute',
-          bottom: 109,
+          bottom: 59,
           left: 30,
-          fontSize: 20,
+          fontSize: 16,
           color: '#FFF',
-        }}>Brand Name</Text>
+        }}>{item['name']}</Text>
         <Text
           style={{
             position: 'absolute',
-            bottom: 58,
+            bottom: 80,
             left: 30,
-            fontSize: 40,
+            fontSize: 38,
             color: '#FFF',
           }}>
-          {item.title}
+          {item['brand']}
         </Text>
         <Text 
           style={{
@@ -94,7 +95,7 @@ const TinderCard = ({item, isFirst, swipe, ...rest}) => {
             left: 30,
             fontSize: 14,
             color: '#FFF',
-          }}>Insert Item Description Here.....</Text>
+          }}>{item['price']}</Text>
       </LinearGradient>
     </Animated.View>
   );

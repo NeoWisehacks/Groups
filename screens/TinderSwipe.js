@@ -6,34 +6,22 @@ import {
     Image,
     Animated,
     PanResponder,
-    Dimensions,
+    Dimensions
   } from 'react-native';
+  import {collection, getDocs } from 'firebase/firestore/lite';
   import React, {useCallback, useEffect, useRef, useState} from 'react';
   import TinderCard from './TinderCard';
+  import {db} from '../firebaseConfig'
   const {height, width} = Dimensions.get('window');
+  const image_array=[require('../assets/images_for_swipe/saaree.jpg'),require('../assets/images_for_swipe/kurta.jpg'),require('../assets/images_for_swipe/blazer.jpg'),require('../assets/images_for_swipe/skirt.jpg'),]
   const TinderSwipe = () => {
-    const [data, setData] = useState([
-      {image: require('../assets/images_for_swipe/hulk.webp'), id: 1, title: 'Hulk'},
-      {image: require('../assets/images_for_swipe/ironman.webp'), id: 2, title: 'Ironman'},
-      {image: require('../assets/images_for_swipe/thor.jpeg'), id: 3, title: 'Thor'},
-      {image: require('../assets/images_for_swipe/superman.webp'), id: 4, title: 'Superman'},
-      {image: require('../assets/images_for_swipe/groot.webp'), id: 5, title: 'Groot'},
-      {image: require('../assets/images_for_swipe/blackpanther.webp'),id: 6,title: 'Black Panther'},
-      {image: require('../assets/images_for_swipe/drstrange.jpeg'), id: 7, title: 'Dr Strange'},
-      {image: require('../assets/images_for_swipe/blackwidow.jpeg'), id: 8, title: 'Black Widow'},
-    ]);
+    
+    const [data, setData] = useState([{"brand": "Koskii", "id": 0, "name": "Mauve Embroidered Saree", "price": "₹5391 (30% off)"}, {"brand": "Sangria", "id": 1, "name": "Embroidery Georgette Kurta Set", "price": " ₹999 (70% off)"}, {"brand": "H&M", "id": 2, "name": "Women Black Longline Blazer", "price": "₹ 3499 "}, {"brand": "Uptownie Lite", "id": 3, "name": "Green Satin Accordion Pleated Skirt", "price": "₹ 1999"}]);
+    
     useEffect(() => {
       if (!data.length) {
-        setData([
-          {image: require('../assets/images_for_swipe/hulk.webp'), id: 1, title: 'Hulk'},
-          {image: require('../assets/images_for_swipe/ironman.webp'), id: 2, title: 'Ironman'},
-          {image: require('../assets/images_for_swipe/thor.jpeg'), id: 3, title: 'Thor'},
-          {image: require('../assets/images_for_swipe/superman.webp'), id: 4, title: 'Superman'},
-          {image: require('../assets/images_for_swipe/groot.webp'), id: 5, title: 'Groot'},
-          {image: require('../assets/images_for_swipe/blackpanther.webp'),id: 6,title: 'Black Panther'},
-          {image: require('../assets/images_for_swipe/drstrange.jpeg'),id: 7,title: 'Dr Strange'},
-          {image: require('../assets/images_for_swipe/blackwidow.jpeg'),id: 8,title: 'Black Widow'},
-        ]);
+        setData([{"brand": "Koskii", "id": 0, "name": "Mauve Embroidered Saree", "price": "₹5391 (30% off)"}, {"brand": "Sangria", "id": 1, "name": "Embroidery Georgette Kurta Set", "price": " ₹999 (70% off)"}, {"brand": "H&M", "id": 2, "name": "Women Black Longline Blazer", "price": "₹ 3499 "}, {"brand": "Uptownie Lite", "id": 3, "name": "Green Satin Accordion Pleated Skirt", "price": "₹ 1999"}]);
+        
       }
     }, [data.length]);
     const swipe = useRef(new Animated.ValueXY()).current;
@@ -86,6 +74,7 @@ import {
               <TinderCard
                 swipe={swipe}
                 item={item}
+                image={image_array[item['id']]} //////////////////////////////////////////////////////////////////////
                 isFirst={isFirst}
                 {...dragHandlers}
               />
