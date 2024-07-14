@@ -65,11 +65,6 @@ const App = () => {
         {hideSplashScreen ? (
           <Stack.Navigator screenOptions={{ headerShown: false }}>
             <Stack.Screen
-              name="Communities"
-              component={Communities}
-              options={{ headerShown: false }}
-            />
-            <Stack.Screen
               name="Home"
               component={Home}
               options={{ headerShown: false }}
@@ -94,11 +89,11 @@ const App = () => {
               component={LeftSwipFeature}
               options={{ headerShown: false }}
             />
-            {/* <Stack.Screen
+            <Stack.Screen
               name="Communities"
               component={Communities}
               options={{ headerShown: false }}
-            /> */}
+            />
             <Stack.Screen
               name="PollsPage"
               component={PollsPage}
