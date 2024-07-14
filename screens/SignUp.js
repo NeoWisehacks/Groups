@@ -3,7 +3,9 @@ import { useState } from "react";
 import { Image } from "expo-image";
 import { useNavigation } from "@react-navigation/native";
 import { Pressable, StyleSheet, Text, View, TextInput, Alert } from "react-native";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import { Color, FontFamily, Padding, Border, FontSize } from "../GlobalStyles";
+import { auth } from "../config.js/firebase";
 
 const SignUp = () => {
   navigation=useNavigation();
@@ -11,14 +13,14 @@ const SignUp = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleRegister = () => {
-    if (name === '' || email === '' || password === '') {
-      Alert.alert('Error', 'Please fill in all fields');
-    } else {
-      // Handle registration logic here
-      Alert.alert('Success', `Name: ${name}, Email: ${email}, Password: ${password}`);
-      navigation.navigate("Home");
-    }};
+  const handleSignup = () => {
+    if (email !== '' && password !== '') {
+  createUserWithEmailAndPassword(auth, email, password)
+        .then(() => console.log('Signup success'))
+        .catch((err) => Alert.alert("Login error", err.message));
+    }
+  };
+
 
   return (
     <View style={styles.loginSignup}>
@@ -50,6 +52,7 @@ const SignUp = () => {
           </View>
           <View style={[styles.passwordGroup, styles.passwordGroupFlexBox]}>
             <TextInput style={styles.password} placeholder="Email" value={email}
+            autoCapitalize="none"
             onChangeText={setEmail}
             keyboardType="email-address"/>
             
@@ -64,7 +67,7 @@ const SignUp = () => {
               source={require("../assets/icons/eye.svg")}
             />
           </View>
-          <Pressable style={[styles.signUpContainer, styles.passwordGroupFlexBox]} onPress={handleRegister}>
+          <Pressable style={[styles.signUpContainer, styles.passwordGroupFlexBox]} onPress={handleSignup}>
             <Text style={styles.signUp1}>Sign up</Text>
           </Pressable>
         </View>

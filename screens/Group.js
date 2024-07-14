@@ -1,4 +1,5 @@
 import * as React from "react";
+import {giftedChat} from "react-native-gifted-chat";
 import { Image } from "expo-image";
 import { StyleSheet, Text, View } from "react-native";
 import OpinionPoll from "../components/OpinionPoll";

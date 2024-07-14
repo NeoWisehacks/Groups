@@ -1,4 +1,5 @@
-{
+import "dotenv/config";
+export default {
   "expo": {
     "name": "myntra_-_2",
     "slug": "myntra_-_2",
@@ -31,6 +32,7 @@
     },
     "plugins": [
       "expo-font"
-    ]
+    ],
+    
   }
 }

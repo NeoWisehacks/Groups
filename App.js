@@ -25,7 +25,7 @@ import Outfit from "./components/Outfit";
 import Product from "./components/Product";
 import ToggleWardrobe from "./components/ToggleWardrobe";
 import GroupOutfit from "./screens/GroupOutfit";
-
+import { onAuthStateChanged } from "firebase/auth";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { View, Text, Pressable, TouchableOpacity } from "react-native";
 import RightSwipFeature from "./screens/RightSwipFeature";
@@ -35,6 +35,23 @@ import Collection from "./screens/Collection";
 import Collection1 from "./screens/Collection1";
 import SignUp from "./screens/SignUp";
 import Login from "./screens/Login";
+const AuthenticatedUserContext= React.createContext({});
+const AuthenticatedUserProvider =({children})=>{
+  const [user, setUser]= useState(null);
+  return(
+    <AuthenticatedUserContext.Provider value={{user,setUser}}>
+      {children}
+    </AuthenticatedUserContext.Provider>
+  )
+}
+
+function AuthStack(){
+  <Stack.Navigator defaultscreenoption={Home} screenOptions={{ headerShown: false }}>
+    <Stack.Screen name="Login" component={Login}/>
+    <Stack.Screen name="SignUp" component={SignUp}/>
+  </Stack.Navigator>
+}
+
 const App = () => {
   const [hideSplashScreen, setHideSplashScreen] = React.useState(true);
 

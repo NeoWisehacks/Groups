@@ -15,7 +15,7 @@ const Home = () => {
   const navigation = useNavigation();
 
   return (
-    <SafeAreaView style={styles.home}>
+    <View style={styles.home}>
       <SearchAndButtons />
       <ToggleHome
         property1Variant2Position="absolute"
@@ -77,7 +77,7 @@ const Home = () => {
               </Text>
             </Pressable>
           </View>
-          <View style={styles.tripsParent}>
+          <ScrollView style={styles.tripsParent}>
             <View style={styles.tripsSpaceBlock}>
               <View style={[styles.tripNameWrapper, styles.forParentFlexBox]}>
                 <Text style={[styles.tripName, styles.forClr]}>Trip Name</Text>
@@ -142,7 +142,7 @@ const Home = () => {
                 </Text>
               </View>
             </View>
-          </View>
+          </ScrollView>
         </View>
       </View>
       <Navbar
@@ -158,7 +158,7 @@ const Home = () => {
         <Text style={[styles.xplore, styles.xploreClr]}>XPLORE</Text>
       </View>
       
-    </SafeAreaView>
+    </View>
   );
 };
 

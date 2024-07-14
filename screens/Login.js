@@ -5,21 +5,25 @@ import { useNavigation } from "@react-navigation/native";
 import { Pressable, StyleSheet, Text, View, TextInput, Alert } from "react-native";
 import { Color, FontFamily, Padding, Border, FontSize } from "../GlobalStyles";
 
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../config.js/firebase";
 const Login = () => {
-    navigation=useNavigation();
-    
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
 
-    const handleLogin = () => {
-        if (username === '' || password === '') {
-          Alert.alert('Error', 'Please fill in both fields');
-        } else {
-          // Handle login logic here
-          Alert.alert('Success', `Username: ${username}, Password: ${password}`);
-          navigation.navigate("Home");
-        }
-      };
+    const navigation=useNavigation();
+    
+    const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleLogin = () => {
+    if (email !== "" && password !== "") {
+      signInWithEmailAndPassword(auth, email, password)
+        .then(() => console.log("Login success"))
+        .catch((err) => Alert.alert("Login error", err.message));
+    }
+      else{
+        Alert.alert("fill all credentials");
+      }
+    }; 
 
     return (
         <View style={styles.loginSignup}>
@@ -45,8 +49,8 @@ const Login = () => {
               
               <View style={[styles.passwordGroup, styles.passwordGroupFlexBox]}>
                 <TextInput style={styles.password} placeholder="Email" 
-                value={username}
-                onChangeText={setUsername}/>
+                value={email}
+                onChangeText={setEmail}/>
                 
               </View>
               <View style={[styles.passwordGroup, styles.passwordGroupFlexBox]}>
@@ -62,7 +66,7 @@ const Login = () => {
                 />
               </View>
               <Pressable style={[styles.signUpContainer, styles.passwordGroupFlexBox]} onPress={handleLogin}>
-                <Text style={styles.signUp1}>Sign up</Text>
+                <Text style={styles.signUp1}>Login</Text>
               </Pressable>
             </View>
           </View>
