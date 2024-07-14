@@ -17,7 +17,7 @@ const Login = () => {
   const handleLogin = () => {
     if (email !== "" && password !== "") {
       signInWithEmailAndPassword(auth, email, password)
-        .then(() => console.log("Login success"))
+        .then(navigation.navigate('Home'))
         .catch((err) => Alert.alert("Login error", err.message));
     }
       else{

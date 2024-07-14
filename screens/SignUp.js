@@ -16,7 +16,7 @@ const SignUp = () => {
   const handleSignup = () => {
     if (email !== '' && password !== '') {
   createUserWithEmailAndPassword(auth, email, password)
-        .then(() => console.log('Signup success'))
+        .then(navigation.navigate('Home'))
         .catch((err) => Alert.alert("Login error", err.message));
     }
   };
